@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.herk.njtechlogin" >
+    package="com.herk.njtechlogin">
 
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -15,14 +15,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NJtechAutologin" >
+        android:theme="@style/Theme.NJtechAutologin">
+        <service
+            android:name=".UpDateService"
+            android:enabled="true"
+            android:exported="true"></service>
 
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.NJtechAutologin.NoActionBar" >
+            android:theme="@style/Theme.NJtechAutologin.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,8 +35,7 @@
 
             <meta-data
                 android:name="android.app.shortcuts"
-                android:resource="@xml/shortcuts" >
-            </meta-data>
+                android:resource="@xml/shortcuts"></meta-data>
         </activity>
         <activity
             android:name=".login.LoginActivity"
@@ -40,20 +43,18 @@
             android:label="@string/activity_login_title"
             android:launchMode="singleTask"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="fullSensor" >
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".help.HelpActivity"
             android:exported="true"
             android:label="@string/app_help"
             android:parentActivityName=".MainActivity" />
-
         <activity
             android:name=".feedback.FeedbackActivity"
             android:exported="true"
@@ -63,7 +64,7 @@
         <service
             android:name=".LoginService"
             android:enabled="true"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.LOGIN" />
 
@@ -74,8 +75,7 @@
             android:name=".GuardService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="mediaProjection" >
-        </service>
+            android:foregroundServiceType="mediaProjection"></service>
     </application>
 
 </manifest>

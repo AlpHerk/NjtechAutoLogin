@@ -15,7 +15,7 @@ class FeedbackActivity : AppCompatActivity() {
         binding = ActivityFeedbackBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Toast.makeText(MyApp.context, "点击图标自动跳转", Toast.LENGTH_LONG).show()
+        Toast.makeText(MyApp.context, "点击图标自动跳转", Toast.LENGTH_SHORT).show()
         binding.contactQQImg.setOnClickListener {
             try {
                 val qqUrl = "mqqwpa://im/chat?chat_type=wpa&uin=1924450620"
