@@ -26,12 +26,6 @@ class GuardService : Service() {
     override fun onBind(intent: Intent): IBinder {
         TODO("Return the communication channel to the service.")
     }
-//    override fun onCreate() {
-//        super.onCreate()
-//        scope.launch {
-//            showToast("守护服务开始运行")
-//        }
-//    }
 
     @SuppressLint("UnspecifiedImmutableFlag")
     @RequiresApi(Build.VERSION_CODES.O)
