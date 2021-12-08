@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.378125" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/background_box.xml" value="0.25" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/baseline_account_circle_black_24dp.xml" value="0.3723076923076923" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/baseline_info_black_24dp.xml" value="0.3723076923076923" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/baseline_settings_black_24dp.xml" value="0.3723076923076923" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/ic_launcher_background.xml" value="0.378125" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/ic_menu_camera.xml" value="0.378125" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.378125" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.378125" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/ic_njtech_wifi.xml" value="0.36018518518518516" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/icon_gear.xml" value="0.35185185185185186" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/icon_info.xml" value="0.35185185185185186" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/icon_user.xml" value="0.35185185185185186" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/main_nav_header_side.xml" value="0.35185185185185186" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/shap_backbox.xml" value="0.378125" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/shape_back_box.xml" value="0.31025641025641026" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/shape_edittext.xml" value="0.378125" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/drawable/side_nav_bar.xml" value="0.378125" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout-land/activity_feedback.xml" value="0.434375" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout-land/activity_login.xml" value="0.33" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout-land/fragment_home.xml" value="0.33" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout-land/fragment_info.xml" value="0.33" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout-land/fragment_setting.xml" value="0.4114583333333333" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.23259705488621152" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout-w936dp/activity_login.xml" value="0.271484375" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/activity_feedback.xml" value="0.33" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/activity_main.xml" value="0.29528985507246375" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/app_bar_main.xml" value="0.32685185185185184" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/content_main.xml" value="0.25" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/fragment_about.xml" value="0.3619791666666667" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/fragment_account.xml" value="0.2" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/fragment_gallery.xml" value="0.3619791666666667" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/fragment_info.xml" value="0.33" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/fragment_setting.xml" value="0.33" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/fragment_slideshow.xml" value="0.3619791666666667" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/main_app_bar.xml" value="0.25" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/main_nav_drawer.xml" value="0.33" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/main_nav_header.xml" value="0.3619791666666667" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/nav_header_main.xml" value="0.3619791666666667" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/layout/switch_item.xml" value="0.297008547008547" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/menu/activity_main_drawer.xml" value="0.3619791666666667" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/menu/main.xml" value="0.3619791666666667" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/menu/main_nav_menu.xml" value="0.3619791666666667" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/menu/shortcuts.xml" value="0.33" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/menu/toolbar.xml" value="0.3619791666666667" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.378125" />
+        <entry key="..\:/#Herk/Documents/AllCode/PrjctDev/AndroidDev/NJtech-Autologin/app/src/main/res/xml/shortcuts.xml" value="0.297008547008547" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/drawable/background_box.xml" value="0.2901709401709402" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/drawable/background_card.xml" value="0.3143518518518518" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/drawable/icon_gear.xml" value="0.2901709401709402" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/drawable/icon_info.xml" value="0.3143518518518518" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/drawable/icon_user.xml" value="0.3143518518518518" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout-land/activity_feedback.xml" value="0.33" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout-land/activity_help.xml" value="0.25" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout-land/activity_login.xml" value="0.33" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout-land/content_main.xml" value="0.28021015761821366" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout-land/fragment_home.xml" value="0.28021015761821366" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout-land/fragment_info.xml" value="0.33" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout-land/fragment_setting.xml" value="0.28021015761821366" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/activity_feedback.xml" value="0.33" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/activity_help.xml" value="0.33" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/activity_usehelp.xml" value="0.25" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/content_main.xml" value="0.2962962962962963" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/fragment_home.xml" value="0.2962962962962963" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/fragment_info.xml" value="0.2962962962962963" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/fragment_setting.xml" value="0.33" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/main_app_bar.xml" value="0.2962962962962963" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/main_nav_drawer.xml" value="0.2962962962962963" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/layout/main_nav_header.xml" value="0.25" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/menu/main_nav_menu.xml" value="0.2962962962962963" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/menu/toolbar.xml" value="0.2962962962962963" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3143518518518518" />
+        <entry key="..\:/Aerk/Documents/AllCode/PrjctDev/AndroidDev/NjtechLogin/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3143518518518518" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
