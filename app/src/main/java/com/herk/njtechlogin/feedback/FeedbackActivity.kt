@@ -32,8 +32,8 @@ class FeedbackActivity : AppCompatActivity() {
             val uri = Uri.parse("https://blog.csdn.net/Alpherkin?spm=1000.2115.3001.5343")
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
-        binding.getWinVersionBtn.setOnClickListener {
-            val uri = Uri.parse("https://blog.csdn.net/Alpherkin/article/details/115599094")
+        binding.goMyPage.setOnClickListener {
+            val uri = Uri.parse("https://alpherk.github.io/NjtechAutoLogin/")
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
     }

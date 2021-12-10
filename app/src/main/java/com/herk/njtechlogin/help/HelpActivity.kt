@@ -1,8 +1,8 @@
 package com.herk.njtechlogin.help
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.herk.njtechlogin.databinding.ActivityHelpBinding
 
 class HelpActivity : AppCompatActivity() {
@@ -18,7 +18,7 @@ class HelpActivity : AppCompatActivity() {
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
         binding.getWinVersionBtn.setOnClickListener {
-            val uri = Uri.parse("https://blog.csdn.net/Alpherkin/article/details/115599094")
+            val uri = Uri.parse("https://alpherk.github.io/NjtechAutoLogin/release/NjtechLogin.apk")
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
     }

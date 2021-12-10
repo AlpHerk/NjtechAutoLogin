@@ -2,7 +2,7 @@
     <string name="app_name">工大认证</string>
     <string name="app_author">开发@无白Herk</string>
     <string name="app_version_code">务必到 build.gradle.app 中更新版本码</string>
-    <string name="app_version_name">1.2.2</string>
+    <string name="app_version_name">1.2.3</string>
 
     <string name="navigation_drawer_open">打开侧滑导航栏</string>
     <string name="navigation_drawer_close">关闭侧滑导航栏</string>
@@ -43,6 +43,8 @@
     <string name="notification_message">保障校园网持续畅通 联系反馈@Herk</string>
     <string name="ticker_text">网络守护服务</string>
     <string name="get_help_btn">详细的说明</string>
+    <string name="go_my_page">前往官网</string>
+    <string name="down_win_version">下载电脑版</string>
 
 
 </resources>

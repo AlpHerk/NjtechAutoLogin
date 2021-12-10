@@ -25,7 +25,7 @@ class LoginService : Service() {
                     stopSelf()
                 }
             }
-//            showToast("正在努力认证···")
+            showToast("正在努力认证···")
             val userData = LoginData().postUserData()
             val deferred1 = async(Dispatchers.IO) {
                 AutoLogin.askLogin(userData)

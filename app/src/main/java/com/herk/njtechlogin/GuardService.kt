@@ -8,6 +8,7 @@ import android.os.IBinder
 import androidx.annotation.RequiresApi
 import com.herk.njtechlogin.feedback.FeedbackActivity
 import com.herk.njtechlogin.main.setting.SettingData
+import com.herk.njtechlogin.util.CNTTIME_defVal
 import com.herk.njtechlogin.util.MyApp.Companion.context
 import com.herk.njtechlogin.util.NetUtil
 import com.herk.njtechlogin.util.showToast
@@ -15,6 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
+
 const val CHANNEL_GUARD_ID = "channel guard"
 const val CHANNEL_GUARD_NAME = "守护服务"
 
@@ -27,14 +29,14 @@ class GuardService : Service() {
         TODO("Return the communication channel to the service.")
     }
 
-    @SuppressLint("UnspecifiedImmutableFlag")
     @RequiresApi(Build.VERSION_CODES.O)
+    @SuppressLint("UnspecifiedImmutableFlag")
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         thread {
             while(SettingData().isGardNet) {
                 if (!NetUtil.isNetWorked())
                     startService(Intent(this, LoginService::class.java))
-                Thread.sleep(10*60*1000)
+                Thread.sleep((CNTTIME_defVal*60*1000).toLong())
             }
         }
         val noteChannel: NotificationChannel
@@ -60,7 +62,6 @@ class GuardService : Service() {
             .setContentIntent(guardIntent)
             .build()
         startForeground(1, notification); //开始前台服务
-
         return super.onStartCommand(intent, flags, startId)
     }
     override fun onDestroy() {

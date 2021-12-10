@@ -7,11 +7,11 @@
     tools:context="com.herk.njtechlogin.feedback.FeedbackActivity">
 
     <Button
-        android:id="@+id/getWinVersionBtn"
+        android:id="@+id/goMyPage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/bg_card_gray"
-        android:text="获取电脑版"
+        android:text="@string/go_my_page"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline56"
@@ -89,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.74" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline26"

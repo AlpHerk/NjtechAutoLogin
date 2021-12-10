@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import com.herk.njtechlogin.GuardService
-import com.herk.njtechlogin.util.*
 import com.herk.njtechlogin.databinding.FragmentSettingBinding
+import com.herk.njtechlogin.util.AUTORUN
+import com.herk.njtechlogin.util.GARDNET
+import com.herk.njtechlogin.util.MyApp
+import com.herk.njtechlogin.util.SETING_FIL
 
 class SettingFragment : Fragment() {
 
@@ -44,7 +47,7 @@ class SettingFragment : Fragment() {
     }
 
     private fun saveLoginData() {
-        MyApp.context.getSharedPreferences(SETTING_FILE,0).edit() {
+        MyApp.context.getSharedPreferences(SETING_FIL,0).edit() {
             putBoolean(GARDNET, binding.gardNetSwt.isChecked)
             putBoolean(AUTORUN, binding.autoRunSwt.isChecked)
         }

@@ -15,17 +15,17 @@
         android:text="@string/get_help_btn"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/getWinVersionBtn"
+        app:layout_constraintBottom_toTopOf="@+id/downWinVersion"
         app:layout_constraintEnd_toStartOf="@+id/guideline51"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline50" />
 
     <Button
-        android:id="@+id/getWinVersionBtn"
+        android:id="@+id/downWinVersion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/bg_card_gray"
-        android:text="获取电脑版"
+        android:text="@string/down_win_version"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline52"
