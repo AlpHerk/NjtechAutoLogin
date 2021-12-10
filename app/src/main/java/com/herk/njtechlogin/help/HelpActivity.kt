@@ -17,7 +17,7 @@ class HelpActivity : AppCompatActivity() {
             val uri = Uri.parse("https://blog.csdn.net/Alpherkin/article/details/120580798")
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
-        binding.getWinVersionBtn.setOnClickListener {
+        binding.downWinVersion.setOnClickListener {
             val uri = Uri.parse("https://alpherk.github.io/NjtechAutoLogin/release/NjtechLogin.apk")
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
