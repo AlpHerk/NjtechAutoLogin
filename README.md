@@ -1,5 +1,6 @@
+# 南京工业大学 校园网自动登录认证 (安卓/电脑 多平台适用)
 # NjtechLogin ( Android/Kotlin Windows/Python )
-# 南京工业大学校园网自动认证 (安卓/电脑)
+
 
 
 > [官网下载地址][1]&emsp;&emsp;[CSDN项目地址][2]&emsp;&emsp;[联系及反馈][3]
