@@ -1,6 +1,6 @@
-package com.herk.njtechlogin.main.setting
+package alpherk.njtechlogin.main.setting
+import alpherk.njtechlogin.util.*
 import androidx.core.content.edit
-import com.herk.njtechlogin.util.*
 
 
 class SettingData {

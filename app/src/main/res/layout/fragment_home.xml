@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.herk.njtechlogin.main.home.HomeFragment">
+    tools:context="alpherk.njtechlogin.main.home.HomeFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"

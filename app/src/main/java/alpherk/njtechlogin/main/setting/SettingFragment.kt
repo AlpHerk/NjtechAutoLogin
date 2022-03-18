@@ -1,4 +1,10 @@
-package com.herk.njtechlogin.main.setting
+package alpherk.njtechlogin.main.setting
+import alpherk.njtechlogin.GuardService
+import alpherk.njtechlogin.databinding.FragmentSettingBinding
+import alpherk.njtechlogin.util.AUTORUN
+import alpherk.njtechlogin.util.GARDNET
+import alpherk.njtechlogin.util.MyApp
+import alpherk.njtechlogin.util.SETING_FIL
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
-import com.herk.njtechlogin.GuardService
-import com.herk.njtechlogin.databinding.FragmentSettingBinding
-import com.herk.njtechlogin.util.AUTORUN
-import com.herk.njtechlogin.util.GARDNET
-import com.herk.njtechlogin.util.MyApp
-import com.herk.njtechlogin.util.SETING_FIL
 
 class SettingFragment : Fragment() {
 

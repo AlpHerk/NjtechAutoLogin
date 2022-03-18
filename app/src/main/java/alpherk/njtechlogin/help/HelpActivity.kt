@@ -1,9 +1,9 @@
-package com.herk.njtechlogin.help
+package alpherk.njtechlogin.help
+import alpherk.njtechlogin.databinding.ActivityHelpBinding
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.herk.njtechlogin.databinding.ActivityHelpBinding
 
 class HelpActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHelpBinding

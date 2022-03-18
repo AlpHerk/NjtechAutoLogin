@@ -1,4 +1,10 @@
-package com.herk.njtechlogin.main.info
+package alpherk.njtechlogin.main.info
+import alpherk.njtechlogin.databinding.FragmentInfoBinding
+import alpherk.njtechlogin.feedback.FeedbackActivity
+import alpherk.njtechlogin.help.HelpActivity
+import alpherk.njtechlogin.util.ChekUpdate
+import alpherk.njtechlogin.util.MyApp
+import alpherk.njtechlogin.util.showToast
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -8,12 +14,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import com.herk.njtechlogin.databinding.FragmentInfoBinding
-import com.herk.njtechlogin.feedback.FeedbackActivity
-import com.herk.njtechlogin.help.HelpActivity
-import com.herk.njtechlogin.util.ChekUpdate
-import com.herk.njtechlogin.util.MyApp
-import com.herk.njtechlogin.util.showToast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch

@@ -1,11 +1,11 @@
-package com.herk.njtechlogin.feedback
+package alpherk.njtechlogin.feedback
+import alpherk.njtechlogin.databinding.ActivityFeedbackBinding
+import alpherk.njtechlogin.util.MyApp
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.herk.njtechlogin.databinding.ActivityFeedbackBinding
-import com.herk.njtechlogin.util.MyApp
 
 class FeedbackActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFeedbackBinding

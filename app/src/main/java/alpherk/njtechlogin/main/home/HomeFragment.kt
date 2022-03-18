@@ -1,12 +1,12 @@
-package com.herk.njtechlogin.main.home
+package alpherk.njtechlogin.main.home
+import alpherk.njtechlogin.LoginService
+import alpherk.njtechlogin.databinding.FragmentHomeBinding
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.herk.njtechlogin.LoginService
-import com.herk.njtechlogin.databinding.FragmentHomeBinding
 
 
 class HomeFragment : Fragment() {

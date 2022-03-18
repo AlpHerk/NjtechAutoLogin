@@ -1,4 +1,11 @@
-package com.herk.njtechlogin
+package alpherk.njtechlogin
+import alpherk.njtechlogin.databinding.MainNavDrawerBinding
+import alpherk.njtechlogin.login.LoginActivity
+import alpherk.njtechlogin.login.LoginData
+import alpherk.njtechlogin.main.setting.SettingData
+import alpherk.njtechlogin.main.setting.SettingFragment
+import alpherk.njtechlogin.util.LOGIN_FILE
+import alpherk.njtechlogin.util.USERNAME
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -12,13 +19,6 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.herk.njtechlogin.databinding.MainNavDrawerBinding
-import com.herk.njtechlogin.login.LoginActivity
-import com.herk.njtechlogin.login.LoginData
-import com.herk.njtechlogin.main.setting.SettingData
-import com.herk.njtechlogin.main.setting.SettingFragment
-import com.herk.njtechlogin.util.LOGIN_FILE
-import com.herk.njtechlogin.util.USERNAME
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.herk.njtechlogin.util
+package alpherk.njtechlogin.util
 import android.view.View
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar

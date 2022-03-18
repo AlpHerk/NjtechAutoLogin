@@ -1,11 +1,11 @@
-package com.herk.njtechlogin
+package alpherk.njtechlogin
+import alpherk.njtechlogin.login.LoginData
+import alpherk.njtechlogin.util.AutoLogin
+import alpherk.njtechlogin.util.NetUtil
+import alpherk.njtechlogin.util.showToast
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import com.herk.njtechlogin.login.LoginData
-import com.herk.njtechlogin.util.AutoLogin
-import com.herk.njtechlogin.util.NetUtil
-import com.herk.njtechlogin.util.showToast
 import kotlinx.coroutines.*
 
 class LoginService : Service() {

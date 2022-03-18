@@ -1,16 +1,16 @@
-package com.herk.njtechlogin.login
+package alpherk.njtechlogin.login
+import alpherk.njtechlogin.MainActivity
+import alpherk.njtechlogin.databinding.ActivityLoginBinding
+import alpherk.njtechlogin.util.LOGIN_FILE
+import alpherk.njtechlogin.util.NETCOMPA
+import alpherk.njtechlogin.util.PASSWORD
+import alpherk.njtechlogin.util.USERNAME
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
-import com.herk.njtechlogin.MainActivity
-import com.herk.njtechlogin.util.NETCOMPA
-import com.herk.njtechlogin.util.PASSWORD
-import com.herk.njtechlogin.util.USERNAME
-import com.herk.njtechlogin.util.LOGIN_FILE
-import com.herk.njtechlogin.databinding.ActivityLoginBinding
 
 
 class LoginActivity : AppCompatActivity() {

@@ -6,14 +6,14 @@
     <data>
         <variable
             name="loginData"
-            type="com.herk.njtechlogin.login.LoginData" />
+            type="alpherk.njtechlogin.login.LoginData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.herk.njtechlogin.login.LoginActivity">
+        tools:context="alpherk.njtechlogin.login.LoginActivity">
 
         <TextView
             android:id="@+id/textBox"

@@ -1,4 +1,4 @@
-package com.herk.njtechlogin.util
+package alpherk.njtechlogin.util
 import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context

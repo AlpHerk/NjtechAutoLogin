@@ -1,4 +1,10 @@
-package com.herk.njtechlogin
+package alpherk.njtechlogin
+import alpherk.njtechlogin.feedback.FeedbackActivity
+import alpherk.njtechlogin.main.setting.SettingData
+import alpherk.njtechlogin.util.CNTTIME_defVal
+import alpherk.njtechlogin.util.MyApp.Companion.context
+import alpherk.njtechlogin.util.NetUtil
+import alpherk.njtechlogin.util.showToast
 import android.annotation.SuppressLint
 import android.app.*
 import android.content.Intent
@@ -6,19 +12,13 @@ import android.graphics.Color
 import android.os.Build
 import android.os.IBinder
 import androidx.annotation.RequiresApi
-import com.herk.njtechlogin.feedback.FeedbackActivity
-import com.herk.njtechlogin.main.setting.SettingData
-import com.herk.njtechlogin.util.CNTTIME_defVal
-import com.herk.njtechlogin.util.MyApp.Companion.context
-import com.herk.njtechlogin.util.NetUtil
-import com.herk.njtechlogin.util.showToast
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.concurrent.thread
 
 const val CHANNEL_GUARD_ID = "channel guard"
-const val CHANNEL_GUARD_NAME = "守护服务"
+const val CHANNEL_GUARD_NAME = "网络守护服务"
 
 
 class GuardService : Service() {
@@ -52,7 +52,8 @@ class GuardService : Service() {
             manager.createNotificationChannel(noteChannel)
         }
         val guardIntent: PendingIntent = Intent(this, FeedbackActivity::class.java).let {
-                notifyIntent -> PendingIntent.getActivity(this, 0, notifyIntent, 0)}
+                notifyIntent -> PendingIntent.getActivity(this, 0, notifyIntent, PendingIntent.FLAG_IMMUTABLE)}
+
         val notification = Notification.Builder(this, CHANNEL_GUARD_ID)
             .setChannelId(CHANNEL_GUARD_ID)
             .setSmallIcon(R.drawable.shield)

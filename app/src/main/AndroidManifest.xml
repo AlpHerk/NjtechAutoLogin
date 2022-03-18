@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.herk.njtechlogin">
+    package="alpherk.njtechlogin">
 
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -19,7 +19,7 @@
         <service
             android:name=".UpDateService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="false" />
 
         <activity
             android:name=".MainActivity"
@@ -35,7 +35,7 @@
 
             <meta-data
                 android:name="android.app.shortcuts"
-                android:resource="@xml/shortcuts"></meta-data>
+                android:resource="@xml/shortcuts" />
         </activity>
         <activity
             android:name=".login.LoginActivity"
@@ -75,7 +75,7 @@
             android:name=".GuardService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="mediaProjection"></service>
+            android:foregroundServiceType="mediaProjection" />
     </application>
 
 </manifest>

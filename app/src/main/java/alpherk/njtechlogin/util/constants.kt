@@ -1,4 +1,4 @@
-package com.herk.njtechlogin.util
+package alpherk.njtechlogin.util
 
 // prefs_login_data
 const val LOGIN_FILE = "LOGIN_DATA"
@@ -13,4 +13,4 @@ const val AUTORUN  = "autoRun"
 const val CNTTIME  = "cntTime"
 var GARDNET_defVal = true
 var AUTORUN_defVal = false
-var CNTTIME_defVal = 10 //每指定分钟检测网络
+var CNTTIME_defVal = 2 //每指定分钟检测网络

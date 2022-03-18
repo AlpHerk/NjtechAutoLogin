@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.herk.njtechlogin.feedback.FeedbackActivity">
+    tools:context="alpherk.njtechlogin.feedback.FeedbackActivity">
 
     <Button
         android:id="@+id/goMyPage"

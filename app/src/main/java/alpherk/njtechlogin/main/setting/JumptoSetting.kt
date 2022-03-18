@@ -1,4 +1,4 @@
-package com.herk.njtechlogin.main.setting
+package alpherk.njtechlogin.main.setting
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 import android.widget.Toast
-import java.util.*
 
 object JumptoSetting {
     private val hashMap: HashMap<String, List<String>> = object : HashMap<String, List<String>>() {

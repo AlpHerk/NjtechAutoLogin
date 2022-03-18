@@ -1,4 +1,4 @@
-package com.herk.njtechlogin.util
+package alpherk.njtechlogin.util
 import okhttp3.FormBody
 import okhttp3.Request
 

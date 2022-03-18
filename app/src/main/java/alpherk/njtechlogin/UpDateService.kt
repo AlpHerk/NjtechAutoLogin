@@ -1,18 +1,44 @@
-package com.herk.njtechlogin.util
+package alpherk.njtechlogin
 
+import alpherk.njtechlogin.util.MyApp.Companion.context
+import alpherk.njtechlogin.util.showToast
+import android.app.Service
+import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.os.Build
+import android.os.IBinder
 import androidx.annotation.RequiresApi
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
-class ChekUpdate {
+class UpDateService : Service() {
+    private val job = Job()
+    private val scope = CoroutineScope(job)
+
+    override fun onBind(intent: Intent): IBinder {
+        TODO("Return the communication channel to the service.")
+    }
 
     @RequiresApi(Build.VERSION_CODES.P)
-    fun checkUpdate(): Boolean {
+    override fun onCreate() {
+        super.onCreate()
+        scope.launch {
+            if (checkUpdate()) {
+                showToast("有新版本可用")
+            } else {
+                showToast("已更新最新版")
+            }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.P)
+    private fun checkUpdate(): Boolean {
         try {
             val client = OkHttpClient()
             val request = Request.Builder()
@@ -24,12 +50,12 @@ class ChekUpdate {
                 val versionList: List<App> = parseJson(responseData)
                 val currentVer = getCurrentVerCode()
                 for (code in versionList) {
-                    if (code.versionCode > currentVer) {
+                    if (currentVer > code.versionCode) {
                         return true
                     }
                 }
             }
-        } catch (e: Exception) {
+        } catch (e:Exception) {
             e.printStackTrace()
         }
         return false
@@ -45,12 +71,12 @@ class ChekUpdate {
 
     @RequiresApi(Build.VERSION_CODES.P)
     private fun getCurrentVerCode(): Long {
-        val mg: PackageManager = MyApp.context.packageManager
+        val mg: PackageManager = context.packageManager
         try {
-            val info: PackageInfo = mg.getPackageInfo(MyApp.context.packageName, 0)
+            val info: PackageInfo = mg.getPackageInfo(context.packageName, 0)
             return info.longVersionCode
-        } catch (e: Exception) {
-            e.printStackTrace()
+        } catch (e:Exception) {
+            e.printStackTrace();
         }
         return 0
     }

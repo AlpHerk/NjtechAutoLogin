@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">工大认证</string>
-    <string name="app_author">开发@无白Herk</string>
+    <string name="app_name">南工认证</string>
+    <string name="app_author">开发@无白Herk，后续计划界面优化更新</string>
     <string name="app_version_code">务必到 build.gradle.app 中更新版本码</string>
-    <string name="app_version_name">1.2.3</string>
+    <string name="app_version_name">1.2.4(修复android12闪退)</string>
 
     <string name="navigation_drawer_open">打开侧滑导航栏</string>
     <string name="navigation_drawer_close">关闭侧滑导航栏</string>

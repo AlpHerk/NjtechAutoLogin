@@ -1,4 +1,5 @@
-package com.herk.njtechlogin.util
+package alpherk.njtechlogin.util
+import alpherk.njtechlogin.util.MyApp.Companion.context
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -8,7 +9,6 @@ import android.net.wifi.WifiNetworkSuggestion
 import android.os.Build
 import android.provider.Settings
 import androidx.annotation.RequiresApi
-import com.herk.njtechlogin.util.MyApp.Companion.context
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.util.concurrent.TimeUnit

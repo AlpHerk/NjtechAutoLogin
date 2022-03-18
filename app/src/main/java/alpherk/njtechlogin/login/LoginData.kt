@@ -1,5 +1,5 @@
-package com.herk.njtechlogin.login
-import com.herk.njtechlogin.util.*
+package alpherk.njtechlogin.login
+import alpherk.njtechlogin.util.*
 
 
 class LoginData {
