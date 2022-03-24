@@ -37,10 +37,14 @@ class AutoLogin:
         exe  = search('execution\" value=\"(.*?)\"', resp.text).groups()[0]
         ############# 发送post请求, 完成认证 ################
         form = {
-            "username":    self.info['usr'], "password":    self.info['pwd'],
-            "channelshow": self.info['shw'], "channel":     self.info['nel'],
-            "lt":                        lt, "execution":                exe,
-            "_eventId":            "submit", "login":                 "登录"}
+            "username":    self.info['usr'],
+            "password":    self.info['pwd'],
+            "channelshow": self.info['shw'],
+            "channel":     self.info['nel'],
+            "lt":                        lt,
+            "execution":                exe,
+            "_eventId":            "submit",
+            "login":                 "登录"}
         post(url=LOGIN_URL, headers=HEADERS, data=form, cookies=resp.cookies)
 
     def __loginThread(self):
@@ -52,13 +56,14 @@ class AutoLogin:
         return Toast.connectInfo()
 
     def toConnect(self):
-        for _ in range(11):
+        for i in range(11):
             if self.__loginThread(): break
-            Toast.failed()
+        if i >= 10: Toast.failed()
 
     def intervalConnect(self):
         while self.info['cnt'] > -1:
-            if not Toast.connectInfo(): self.toConnect()
+            if not utils.isConnected:
+                self.toConnect()
             print(F"运行中, 间隔{self.info['cnt']}s检测")
             sleep(self.info['cnt'])
         print("重连间隔时间 < 0, 程序退出")
