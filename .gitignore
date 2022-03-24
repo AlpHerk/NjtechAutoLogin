@@ -4,7 +4,6 @@ config
 pyqtui
 *.spec
 test.py
-.git
 **/__pycache__/**
 
 # Built application files
