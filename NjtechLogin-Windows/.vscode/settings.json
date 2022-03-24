@@ -1,0 +1,31 @@
+{
+    "cSpell.words": [
+        "autologin",
+        "Autologin",
+        "CAMW",
+        "cbbx",
+        "ckbx",
+        "cmcc",
+        "cnct",
+        "HKEY",
+        "jsessionid",
+        "KHTML",
+        "makespec",
+        "njtech",
+        "Njtech",
+        "noconfirm",
+        "NOEX",
+        "pwrboot",
+        "pyinstaller",
+        "pyside",
+        "Referer",
+        "showlogin",
+        "spbox",
+        "specpath",
+        "sucs",
+        "USERINFO",
+        "Wdos",
+        "WORKINFO"
+    ],
+    "python.formatting.provider": "black"
+}
