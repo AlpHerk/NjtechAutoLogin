@@ -8,7 +8,7 @@ test.py
 **/__pycache__/**
 
 # Built application files
-# *.apk
+*.apk
 *.ap_
 *.aab
 
