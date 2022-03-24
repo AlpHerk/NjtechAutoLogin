@@ -2,3 +2,4 @@
 * text=auto
 *.js linguist-detectable=false
 docs/lib/* linguist-vendored 
+
