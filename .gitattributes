@@ -2,4 +2,8 @@
 * text=auto
 ; *.js linguist-detectable=false
 docs/lib/* linguist-vendored 
+<<<<<<< HEAD
 resource_rc.py linguist-detectable=false
+=======
+
+>>>>>>> 7952b194d764deeec7227eb52daf43b2d3ce5c40
