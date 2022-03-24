@@ -3,3 +3,8 @@
 ; *.js linguist-detectable=false
 docs/lib/* linguist-vendored 
 resource_rc.py linguist-vendored
+
+
+*.html linguist-language=HTML
+*.css linguist-language=CSS
+*.js linguist-language=JavaScript
