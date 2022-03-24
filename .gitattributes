@@ -1,6 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-# *.js linguist-detectable=false
+
 docs/lib/* linguist-vendored 
 resource_rc.py linguist-vendored
 
