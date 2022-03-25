@@ -3,7 +3,7 @@
 
 * text=auto
 
-docs/lib/** linguist-vendored
+**/docs/lib/** linguist-vendored
 resource_rc.py linguist-vendored
 # NjtechLogin-IOS/docs/lib/** linguist-vendored
 
