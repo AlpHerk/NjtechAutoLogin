@@ -1,11 +1,11 @@
 # Auto detect text files and perform LF normalization
-*.js linguist-detectable=false
+# *.js linguist-detectable=false
 
 * text=auto
 
-docs/lib/* linguist-vendored
+docs/lib/*.js linguist-vendored
 resource_rc.py linguist-vendored
-NjtechLogin-IOS/docs/lib/* linguist-vendored
+# NjtechLogin-IOS/docs/lib/* linguist-vendored
 
 # *.html linguist-language=HTML
 # *.css linguist-language=CSS
