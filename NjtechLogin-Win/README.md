@@ -8,17 +8,9 @@
 ![官网主页示图](https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg)
 
 
-目前本项目共有以下2个源码分支:  
-
-- Android: 基于 Kotlin 开发的安卓App
-    > 安卓App，也适用于鸿蒙系统  
-    > 强烈推荐平板使用 ！！
-
 - Windows: 基于 Python 开发的PC客户端。
     > 有python环境可直接运行 autologin.py  
     > exe版有断网重连、开机自启等功能  
-
-
 
 
 更详细的说明请前往各分支查看
