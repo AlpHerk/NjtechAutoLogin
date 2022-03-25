@@ -1,0 +1,214 @@
+nav {
+  backdrop-filter: blur(30px);
+  background-color: rgba(208,229,251,0.5);
+}
+nav .navbar-brand span {
+  color: #009cd6;
+  line-height: 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+nav .nav-item {
+  font-size: 15px;
+}
+.home_page {
+  height: 100vh;
+  background-color: #d0e5fb;
+}
+.home_page .container {
+  padding: 30vh 0;
+}
+.home_page .container h2:nth-child(1) {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.home_page .container h2:nth-child(2) {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00adee;
+}
+.home_page .container h2:nth-child(2) span {
+  color: #d0e5fb;
+  background-color: #41cbff;
+}
+.home_page .container >.row>div>.row {
+  height: 300px;
+}
+.home_page .container >.row>div>.row .btn-primary {
+  color: #fff;
+  background-color: #4d8df3;
+  border-color: #4d8df3;
+}
+.home_page .container >.row>div>.row .btn-primary:hover {
+  background-color: #2f7af1;
+  border-color: #2f7af1;
+}
+.home_page .container >.row>div>.row .btn-success {
+  background-color: #3abc70;
+  border-color: #3abc70;
+}
+.home_page .container >.row>div>.row .btn-success:hover {
+  background-color: #34a965;
+  border-color: #34a965;
+}
+.home_page .container >.row>div>.row .btn-danger {
+  background-color: #ff6745;
+  border-color: #ff6745;
+}
+.home_page .container >.row>div>.row .btn-danger:hover {
+  background-color: #dd4523;
+  border-color: #dd4523;
+}
+.home_page .container >.row>div>.row .btn-primary:focus,
+.home_page .container >.row>div>.row .btn-success:focus,
+.home_page .container >.row>div>.row .btn-danger:focus {
+  box-shadow: 0 0;
+}
+.home_page .container #exhi_img {
+  background: url("../images/pc.jpg");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 300px;
+}
+.home_page .container #exhi_img img {
+  animation: move 3s infinite alternate;
+  position: absolute;
+  top: -15%;
+  right: 0;
+}
+.intro_page {
+  padding-top: 4rem;
+}
+.intro_page h2 span {
+  color: #4185f4;
+}
+.intro_page h2+div {
+  color: #4185f4;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 10px;
+  margin-bottom: 2rem;
+}
+.intro_page #exhi_img2 {
+  animation: move 2s infinite alternate;
+}
+.intro_page .container .row .row .col>div {
+  margin: 15px 0;
+  padding: 1rem;
+  vertical-align: center;
+  border: 1px solid #d9eafc;
+}
+.intro_page .container .row .row .col>div div {
+  font-size: 18px;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+.intro_page .container .row .row .col>div p {
+  font-size: 13px;
+  text-align: center;
+}
+.faq_page {
+  padding-top: 4rem;
+}
+.faq_page h2 span {
+  color: #4185f4;
+}
+.faq_page h2+div {
+  color: #4185f4;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 10px;
+  margin-bottom: 2rem;
+}
+.faq_page #exhi_img3 {
+  animation: move 2s infinite alternate;
+}
+.faq_page .container .card {
+  border-radius: 0;
+  margin-bottom: 10px;
+  border: none;
+}
+.faq_page .container .card .card-header {
+  background-color: #deeefc;
+  padding: 0;
+  border: none;
+}
+.faq_page .container .card .btn {
+  height: 52px;
+  width: 100%;
+  border: 0;
+}
+.faq_page .container .card .btn:hover {
+  background-color: #4185f4;
+}
+.faq_page .container .card .btn:focus {
+  box-shadow: 0 0;
+}
+@media (max-width: 768px) {
+  .home_page .container {
+    padding: 15vh 0;
+  }
+  .home_page .container h2:nth-child(1) {
+    font-size: 2rem;
+  }
+  .home_page .container h2:nth-child(2) {
+    font-size: 1.2rem;
+  }
+}
+@media (min-width: 768px) {
+  .home_page .container h2:nth-child(1) {
+    font-size: 2.3rem;
+  }
+  .home_page .container h2:nth-child(2) {
+    font-size: 1.6rem;
+  }
+}
+@media (min-width: 992px) {
+  .home_page .container h2:nth-child(1) {
+    font-size: 3rem;
+  }
+  .home_page .container h2:nth-child(2) {
+    font-size: 2rem;
+  }
+}
+@-moz-keyframes move {
+  to {
+    transform: translateY(20px);
+  }
+}
+@-webkit-keyframes move {
+  to {
+    transform: translateY(20px);
+  }
+}
+@-o-keyframes move {
+  to {
+    transform: translateY(20px);
+  }
+}
+@keyframes move {
+  to {
+    transform: translateY(20px);
+  }
+}
+@-moz-keyframes fromL {
+  from {
+    transform: translateX(0%);
+  }
+}
+@-webkit-keyframes fromL {
+  from {
+    transform: translateX(0%);
+  }
+}
+@-o-keyframes fromL {
+  from {
+    transform: translateX(0%);
+  }
+}
+@keyframes fromL {
+  from {
+    transform: translateX(0%);
+  }
+}
