@@ -1,3 +1,7 @@
+## 基于 Python、PyQt 开发的 Win 客户端。
+
+
+<!-- 
 [release更新链接](https://api.github.com/repos/AlpHerk/NjtechAutoLogin/releases)
 
 obj[0]["html_url"]: github release page
@@ -14,4 +18,4 @@ obj[0]["assets"][1]["browser_download_url"]
 ["assets"][0]["browser_download_url"]  
 
 
-[release最新](https://gitee.com/api/v5/repos/AlpHerk/NjtechAutoLogin/releases/latest)  
+[release最新](https://gitee.com/api/v5/repos/AlpHerk/NjtechAutoLogin/releases/latest)   -->
