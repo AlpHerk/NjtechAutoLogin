@@ -1,10 +1,34 @@
 # 南京工业大学 校园网 自动登录认证 (安卓/苹果/电脑 多平台适用)
 # NjtechAutoLogin ( Android/IOS/Windows Cross-Platform )
 
-> [官网下载地址][1]&emsp;&emsp;[CSDN项目地址][2]&emsp;&emsp;[联系及反馈][3]
+<div align="center">
 
-![软件演示图][0]
+简体中文 | [English](./README.en.md)
 
+
+<!-- ![Release Download](https://img.shields.io/github/downloads/AlpHerk/NjtechAutoLogin/total) -->
+[![仓库大小](https://img.shields.io/github/repo-size/AlpHerk/NjtechAutoLogin?color=5DBD88)]()
+[![最新版本](https://img.shields.io/github/v/release/AlpHerk/NjtechAutoLogin)](https://github.com/AlpHerk/NjtechAutoLogin/releases/latest)
+[![许可证](https://img.shields.io/github/license/AlpHerk/NjtechAutoLogin?color=F19D70)](LICENSE)
+[![GitHub Star](https://img.shields.io/github/stars/AlpHerk/NjtechAutoLogin?color=DCBC76)](https://github.com/AlpHerk/NjtechAutoLogin/stargazers)
+
+
+[![CSDN项目地址](https://img.shields.io/badge/CSDN-项目地址-blue.svg?color=F0AEA9)][2]
+[![联系反馈](https://img.shields.io/badge/联系反馈-昂!无白Herk-blue.svg?color=E18774)](https://blog.csdn.net/Alpherkin)
+
+[![官网下载地址](https://img.shields.io/badge/官网-下载地址-blue.svg?color=00ADEE)][1]
+
+</div><div align="center"></div>
+
+<div align="center"> [官网下载地址][1]&emsp;&emsp;[CSDN项目地址][2]&emsp;&emsp;[联系及反馈][3] </div>
+
+![软件演示图][WebSite]
+
+[homepage]: https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg
+[WebSite]: https://alpherk.github.io/NjtechAutoLogin/
+[CSDN blog]: https://blog.csdn.net/Alpherkin/article/details/120580798
+[CSDN Blog]: https://blog.csdn.net/Alpherkin
+[4]: https://github.com/AlpHerk/NjtechAutoLogin/blob/WebPage/images/homepage.jpg
 
 ## 本项目支持 Android/IOS/Windows 三个平台的上网认证
 - 支持 Njtech-Home、Njtech 多设备平台的校园网认证
@@ -22,11 +46,6 @@
   > 需要自行配置快捷指令，后续完善，目前此处仅提供源码
 
 
-[0]: https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg
-[1]: https://alpherk.github.io/NjtechAutoLogin/
-[2]: https://blog.csdn.net/Alpherkin/article/details/120580798
-[3]: https://blog.csdn.net/Alpherkin
-[4]: https://github.com/AlpHerk/NjtechAutoLogin/blob/WebPage/images/homepage.jpg
 
 
 ## 安卓App维护计划：
