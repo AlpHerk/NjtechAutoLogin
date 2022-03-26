@@ -5,6 +5,8 @@ pyqtui
 *.spec
 test.py
 **/__pycache__/**
+**/.vscode/**
+
 
 # Built application files
 *.apk
