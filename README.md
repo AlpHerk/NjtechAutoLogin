@@ -13,12 +13,12 @@
 [![许可证](https://img.shields.io/github/license/AlpHerk/NjtechAutoLogin?color=F19D70)](LICENSE)
 [![星标数](https://img.shields.io/github/stars/AlpHerk/NjtechAutoLogin?color=DCBC76)][Star]
 
-[![CSDN项目地址](https://img.shields.io/badge/CSDN-项目地址-blue.svg?color=F0AEA9)][CsdnPrj]
+[![CSDN项目](https://img.shields.io/badge/CSDN-项目地址-blue.svg?color=F0AEA9)][CsdnPrj]
 [![联系反馈](https://img.shields.io/badge/联系反馈-昂!无白Herk-blue.svg?color=E18774)][CsdnBlog]
 
-[![官网下载地址](https://img.shields.io/badge/官网-下载地址-blue.svg?color=00ADEE)][WebSite]
+[![官网下载](https://img.shields.io/badge/官网-下载地址-blue.svg?color=00ADEE)][WebSite]
 
-![演示图](https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg)
+![演示图，能进来都不错了，还想看图 (●'◡'●)](https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg)
 
 [Star]:     https://github.com/AlpHerk/NjtechAutoLogin/stargazers
 [Latest]:   https://github.com/AlpHerk/NjtechAutoLogin/releases/latest
@@ -33,9 +33,8 @@
 <br>
 
 
-## 本项目支持 Android/IOS/Windows 三个平台的上网认证 (Njtech-Home、Njtech)
-
-
+## 本项目支持 Android/IOS/Windows 三个平台
+## 网络 Njtech-Home、Njtech 的上网认证
 
 - NjtechLogin-App: 基于 Kotlin 开发的安卓App
   > 安卓App，适用于鸿蒙系统  
