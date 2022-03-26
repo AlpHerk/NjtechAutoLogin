@@ -4,8 +4,8 @@ config
 pyqtui
 *.spec
 test.py
-**/__pycache__/**
-**/.vscode/**
+.vscode
+__pycache__
 
 
 # Built application files
