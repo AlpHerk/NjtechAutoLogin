@@ -11,7 +11,7 @@ def checkUpdate():
     version_code = VERSION_CODE
 
     get_header = {'User-Agent': USERAGENT}
-    
+
     try:
         get_json = get(url=CHECK_URL, headers=get_header).text
         jsondata = json.loads(get_json)
