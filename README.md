@@ -1,5 +1,4 @@
-# 南京工业大学 校园网 自动登录认证 (安卓/苹果/电脑)
-# NjtechAutoLogin (Android/IOS/Windows Cross-Platform)
+# 南京工业大学 校园网 自动登录认证 (安卓/苹果/电脑) —— NjtechAutoLogin (Android/IOS/Windows Cross-Platform)
 
 <div align="center">
 
@@ -27,14 +26,10 @@
 [CsdnPrj]:  https://blog.csdn.net/Alpherkin/article/details/120580798
 [HomePage]: https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg
 
-</div>
+</div><br>
 
 
-<br>
-
-
-## 本项目支持 Android/IOS/Windows 三个平台
-## 网络 Njtech-Home、Njtech 的上网认证
+## 本项目支持 Android/IOS/Windows 多平台 Njtech-Home、Njtech 认证
 
 - NjtechLogin-App: 基于 Kotlin 开发的安卓App
   > 安卓App，适用于鸿蒙系统  
@@ -111,9 +106,9 @@
 Windows 端，网络认证失败？
 </summary>
 
+- ### 认证禁止使用代理，请关闭VPN，游戏加速器等
 - 检查开机 WIFI 能否自动连接到 Njtech-Home
 - 检查校园网账号是否欠费停机，密码是否正确等
-- 认证禁止使用代理，请关闭VPN，游戏加速器等
 </details>
 
 
@@ -122,8 +117,8 @@ Windows 端，网络认证失败？
 Windows 端，无法打开网页？
 </summary>
 
+- ### 检查IP是否有效，重置网络，获取有效IP
 - 检查电脑网线接口、网卡驱动是否正常
-- 检查IP是否有效，重置网络，获取有效IP
 </details>
 
 
@@ -132,9 +127,9 @@ Windows 端，无法打开网页？
 Android 端，认证失败？
 </summary>
 
-- 检查手机是否连接到 Njtech-Home
+- ### 关闭VPN代理，关闭游戏加速器等 
 - 检查账号是否欠费停机，密码是否正确
-- 关闭VPN代理，关闭游戏加速器等 
+- 检查手机是否连接到 Njtech-Home
 </details>
 
 
