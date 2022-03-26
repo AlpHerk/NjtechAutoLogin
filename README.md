@@ -1,5 +1,5 @@
-# 南京工业大学 校园网 自动登录认证 (安卓/苹果/电脑 多平台适用)
-# NjtechAutoLogin ( Android/IOS/Windows Cross-Platform )
+# 南京工业大学 校园网 自动登录认证 (安卓/苹果/电脑)
+# NjtechAutoLogin (Android/IOS/Windows Cross-Platform)
 
 <div align="center">
 
@@ -30,8 +30,12 @@
 </div>
 
 
-## 本项目支持 Android/IOS/Windows 三个平台的上网认证
-- 支持 Njtech-Home、Njtech 多设备平台的校园网认证
+<br>
+
+
+## 本项目支持 Android/IOS/Windows 三个平台的上网认证 (Njtech-Home、Njtech)
+
+
 
 - NjtechLogin-App: 基于 Kotlin 开发的安卓App
   > 安卓App，适用于鸿蒙系统  
@@ -42,13 +46,18 @@
   > exe版具有断网重连、开机自启等功能
 
 - NjtechLogin-IOS
-  > 适用于IOS平台，下载 pythonista3 配合快捷指令
+  > 适用于IOS平台，下载 pythonista3 配合快捷指令  
   > 需要自行配置快捷指令，后续完善，目前此处仅提供源码
 
 
+<br>
 
 
-## 安卓App维护计划：
+## 项目维护计划
+
+<details>
+<summary>安卓App维护计划</summary>
+
 - [x] ‌核心的认证功能(V1.0.0-09.25)
 - [x] ‌深色与横屏模式(V1.0.0-10.08)
 - [x] 采用高效的请求处理(V1.1.0-10.10)
@@ -64,23 +73,78 @@
 - [ ] 修复创建页面时地频繁认证
 - [ ] 修复平板模式头像显示错误
 - [ ] 修复设置Fragment跳转重叠
+</details>
 
 
-## 电脑Win版维护计划：
+<details>
+<summary>电脑Win版维护计划</summary>
+
 - [x] 登录窗口重绘
 - [ ] 修复登录窗口阴影缺失
 - [ ] 修复单例进程
 - [ ] c++重构项目，精简体积
 - [ ] 项目重构，版本号重置
+</details>
 
 
-## IOS认证维护计划：
+<details>
+<summary>IOS认证维护计划</summary>
+
 - [ ] 核心python代码(21.08.31)
 - [ ] 创建快捷指令
+</details>
 
 
-## 官方网页维护计划：
+<details>
+<summary>官方网页维护计划</summary>
+
 - [ ] 补充脚页内容
+</details>
+
+
+<br>
+
 
 ## FAQ
-认证失败：关闭VPN代理
+
+<details>
+<summary>
+Windows 端，网络认证失败？
+</summary>
+
+- 检查开机 WIFI 能否自动连接到 Njtech-Home
+- 检查校园网账号是否欠费停机，密码是否正确等
+- 认证禁止使用代理，请关闭VPN，游戏加速器等
+</details>
+
+
+<details>
+<summary>
+Windows 端，无法打开网页？
+</summary>
+
+- 检查电脑网线接口、网卡驱动是否正常
+- 检查IP是否有效，重置网络，获取有效IP
+</details>
+
+
+<details>
+<summary>
+Android 端，认证失败？
+</summary>
+
+- 检查手机是否连接到 Njtech-Home
+- 检查账号是否欠费停机，密码是否正确
+- 关闭VPN代理，关闭游戏加速器等 
+</details>
+
+
+<details>
+<summary>
+安卓 App，闪退？
+</summary>
+
+- 支持安卓9~12版本，过低过高版本可能闪退
+- 安卓9具有自动连接wifi等特性，9以上不具有
+</details>
+
