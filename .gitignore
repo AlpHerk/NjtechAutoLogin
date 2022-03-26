@@ -3,6 +3,7 @@ build
 config
 pyqtui
 *.spec
+*.jks
 test.py
 .vscode
 __pycache__
