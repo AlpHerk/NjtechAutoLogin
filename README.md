@@ -29,28 +29,40 @@
 </div><br>
 
 
-## 本项目支持 Android/IOS/Windows 多平台 Njtech-Home、Njtech 认证
+## 本项目支持 Android/IOS/Windows 多平台认证
 
-- NjtechLogin-App: 基于 Kotlin 开发的安卓App
+1. 仓库下设 NjtechLogin-* 等多个子目录，分别对应不同平台和系统
+2. Windows、Linux、IOS 等可配置 python 环境运行脚本进行认证
+3. Windows、Android 系统提供相应的软件，[点击下载][WebSite]即可使用
+4. Njtech-Home、Njtech 均可认证，认证失败请点击[获取帮助](#faq)
+
+
+-------------------------------
+
+- NjtechLogin-App: 基于 Kotlin 开发的安卓App  
   > 安卓App，适用于鸿蒙系统  
   > 强烈推荐平板使用 ！！
 
-- NjtechLogin-Win: 基于 Python PyQt 开发的PC客户端。
-  > 有python环境可直接运行 autologin.py  
-  > exe版具有断网重连、开机自启等功能
-
-- NjtechLogin-IOS
+- NjtechLogin-IOS: 基于 Python 开发，pythonista3 运行
   > 适用于IOS平台，下载 pythonista3 配合快捷指令  
   > 需要自行配置快捷指令，后续完善，目前此处仅提供源码
+
+- NjtechLogin-Win-Python: 基于 Python、PyQt 开发的 Win 客户端。
+  > 有python环境可直接运行 autologin.py  
+  > exe 版具有断网重连、开机自启等功能
+
+- NjtechLogin-Win-C++: 基于 C++ 语言、Qt 框架 开发的 Win 客户端。  
+  > 由于 PyQt 框架开发的客户端体积越来越大，计划利用 Qt 重新开发。  
+  > 介时也会重置 Win 客户端版本号，设计更美观丰富的界面，先画饼立flag吧 (●'◡'●)
 
 
 <br>
 
 
-## 项目维护计划
+## 项目维护日志
 
 <details>
-<summary>安卓App维护计划</summary>
+<summary>安卓App维护日志</summary>
 
 - [x] ‌核心的认证功能(V1.0.0-09.25)
 - [x] ‌深色与横屏模式(V1.0.0-10.08)
@@ -71,7 +83,7 @@
 
 
 <details>
-<summary>电脑Win版维护计划</summary>
+<summary>电脑Win版维护日志</summary>
 
 - [x] 登录窗口重绘
 - [ ] 修复登录窗口阴影缺失
@@ -82,7 +94,7 @@
 
 
 <details>
-<summary>IOS认证维护计划</summary>
+<summary>IOS认证维护日志</summary>
 
 - [ ] 核心python代码(21.08.31)
 - [ ] 创建快捷指令
@@ -90,7 +102,7 @@
 
 
 <details>
-<summary>官方网页维护计划</summary>
+<summary>官方网页维护日志</summary>
 
 - [ ] 补充脚页内容
 </details>
@@ -99,7 +111,7 @@
 <br>
 
 
-## FAQ
+## 常见问题 FAQ <span id="faq"></span>
 
 <details>
 <summary>
