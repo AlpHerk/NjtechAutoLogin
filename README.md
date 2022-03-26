@@ -3,32 +3,32 @@
 
 <div align="center">
 
-简体中文 | [English](./README.en.md)
+<!-- 简体中文 | [English](./README.en.md) -->
 
+[官网下载地址][WebSite]&emsp;&emsp;[CSDN项目地址][CsdnPrj]&emsp;&emsp;[联系及反馈][CsdnBlog]
 
 <!-- ![Release Download](https://img.shields.io/github/downloads/AlpHerk/NjtechAutoLogin/total) -->
-[![仓库大小](https://img.shields.io/github/repo-size/AlpHerk/NjtechAutoLogin?color=5DBD88)]()
-[![最新版本](https://img.shields.io/github/v/release/AlpHerk/NjtechAutoLogin)](https://github.com/AlpHerk/NjtechAutoLogin/releases/latest)
+![仓库大小](https://img.shields.io/github/repo-size/AlpHerk/NjtechAutoLogin?color=5DBD88)
+[![最新版](https://img.shields.io/github/v/release/AlpHerk/NjtechAutoLogin)][Latest]
 [![许可证](https://img.shields.io/github/license/AlpHerk/NjtechAutoLogin?color=F19D70)](LICENSE)
-[![GitHub Star](https://img.shields.io/github/stars/AlpHerk/NjtechAutoLogin?color=DCBC76)](https://github.com/AlpHerk/NjtechAutoLogin/stargazers)
+[![星标数](https://img.shields.io/github/stars/AlpHerk/NjtechAutoLogin?color=DCBC76)][Star]
 
+[![CSDN项目地址](https://img.shields.io/badge/CSDN-项目地址-blue.svg?color=F0AEA9)][CsdnPrj]
+[![联系反馈](https://img.shields.io/badge/联系反馈-昂!无白Herk-blue.svg?color=E18774)][CsdnBlog]
 
-[![CSDN项目地址](https://img.shields.io/badge/CSDN-项目地址-blue.svg?color=F0AEA9)][2]
-[![联系反馈](https://img.shields.io/badge/联系反馈-昂!无白Herk-blue.svg?color=E18774)](https://blog.csdn.net/Alpherkin)
+[![官网下载地址](https://img.shields.io/badge/官网-下载地址-blue.svg?color=00ADEE)][WebSite]
 
-[![官网下载地址](https://img.shields.io/badge/官网-下载地址-blue.svg?color=00ADEE)][1]
+![演示图](https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg)
 
-</div><div align="center"></div>
+[Star]:     https://github.com/AlpHerk/NjtechAutoLogin/stargazers
+[Latest]:   https://github.com/AlpHerk/NjtechAutoLogin/releases/latest
+[WebSite]:  https://alpherk.github.io/NjtechAutoLogin/
+[CsdnBlog]: https://blog.csdn.net/Alpherkin
+[CsdnPrj]:  https://blog.csdn.net/Alpherkin/article/details/120580798
+[HomePage]: https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg
 
-<div align="center"> [官网下载地址][1]&emsp;&emsp;[CSDN项目地址][2]&emsp;&emsp;[联系及反馈][3] </div>
+</div>
 
-![软件演示图][WebSite]
-
-[homepage]: https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg
-[WebSite]: https://alpherk.github.io/NjtechAutoLogin/
-[CSDN blog]: https://blog.csdn.net/Alpherkin/article/details/120580798
-[CSDN Blog]: https://blog.csdn.net/Alpherkin
-[4]: https://github.com/AlpHerk/NjtechAutoLogin/blob/WebPage/images/homepage.jpg
 
 ## 本项目支持 Android/IOS/Windows 三个平台的上网认证
 - 支持 Njtech-Home、Njtech 多设备平台的校园网认证
