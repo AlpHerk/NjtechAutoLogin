@@ -1,4 +1,4 @@
-# 南京工业大学 校园网自动登录认证 (安卓App)
+# 南京工业大学 校园网 自动登录认证 (安卓App)
 # NjtechLogin ( Android/Kotlin )
 
 
