@@ -6,6 +6,7 @@ pyqtui
 *.jks
 test.py
 .vscode
+untitled
 __pycache__
 
 
