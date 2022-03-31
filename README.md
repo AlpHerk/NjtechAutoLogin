@@ -33,14 +33,14 @@
 
 1. 仓库下设 NjtechLogin-* 等多个子目录，分别对应不同平台和系统
 2. Windows、Linux、、MacOS、IOS 可配置 python 环境运行脚本进行认证
-3. Windows、Android 系统提供相应的软件，[点击下载][WebSite]即可使用
-4. Njtech-Home、Njtech 均可认证，认证失败请点击[获取帮助](#faq)
+3. Windows、Android 系统提供相应的软件，[官网下载][WebSite]即可使用
+4. Njtech-Home、Njtech 均可认证，认证失败请点击[常见问题](#faq)
 
 
 -------------------------------
 
 - NjtechLogin-android: 基于 Kotlin 开发的 App 应用 
-  > 适用于鸿蒙系统(HarmonyOS)1.0~3.0，安卓系统8~12  
+  > 适用于鸿蒙系统(HarmonyOS) 1.0-3.0，安卓系统 8-12  
   > 适配横屏模式，强烈推荐平板使用 ！！
 
 - NjtechLogin-ios&linux: 基于 Python 开发，pythonista3 运行
