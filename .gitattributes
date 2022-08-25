@@ -1,0 +1,9 @@
+# Auto detect text files and perform LF normalization
+# *.js linguist-detectable=false
+
+* text=auto
+
+**/docs/lib/** linguist-vendored
+# *.html linguist-language=HTML
+# *.css linguist-language=CSS
+# *.js linguist-language=JavaScript

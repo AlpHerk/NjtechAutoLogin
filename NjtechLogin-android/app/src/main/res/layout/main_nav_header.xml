@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="LoginData"
+            type="alpherk.njtechlogin.login.LoginData" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main_nav_header"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/main_nav_header_side"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:contentDescription="@string/nav_header_desc"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/netName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/nav_header_title"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/studentID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="15sp" />
+    </LinearLayout>
+</layout>
