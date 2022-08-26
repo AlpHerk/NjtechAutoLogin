@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/NjtechLogin.iml" filepath="$PROJECT_DIR$/.idea/modules/NjtechLogin.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NjtechLogin.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NjtechLogin.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NjtechLogin.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NjtechLogin.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NjtechLogin.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NjtechLogin.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/NjtechLogin.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/NjtechLogin.app.unitTest.iml" />
     </modules>
   </component>
 </project>
