@@ -1,6 +1,4 @@
 package alpherk.njtechlogin.util
-import alpherk.njtechlogin.AuthenService
-import alpherk.njtechlogin.main.setting.SettingData
 import alpherk.njtechlogin.util.MyApp.Companion.context
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -15,7 +13,6 @@ import androidx.annotation.RequiresApi
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.util.concurrent.TimeUnit
-import kotlin.concurrent.thread
 
 
 object NetUtil {

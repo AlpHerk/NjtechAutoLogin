@@ -1,29 +1,32 @@
 package alpherk.njtechlogin
-import alpherk.njtechlogin.broadcast.NetReceiver
 import alpherk.njtechlogin.broadcast.ScreenReceiver
 import alpherk.njtechlogin.databinding.MainNavDrawerBinding
 import alpherk.njtechlogin.login.LoginActivity
 import alpherk.njtechlogin.login.LoginData
 import alpherk.njtechlogin.main.setting.SettingData
-import alpherk.njtechlogin.main.setting.SettingFragment
 import alpherk.njtechlogin.util.LOGIN_FILE
 import alpherk.njtechlogin.util.USERNAME
+import alpherk.njtechlogin.util.Update
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.IntentFilter
-import android.net.ConnectivityManager
-import android.net.wifi.WifiManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
@@ -40,6 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         val (username, password) = LoginData().postUserData()
         if (username == "" || password == "") {
+//            fistTimeDialog()
             startActivity(Intent(this, LoginActivity::class.java))
         } else {
             startService(Intent(this, AuthenService::class.java))
@@ -65,6 +69,8 @@ class MainActivity : AppCompatActivity() {
 //        registerReceiver(netReceiver, filter)
         val screenReceiver = ScreenReceiver()
         registerReceiver(screenReceiver, filter)
+
+        checkUpdateHome()
 
 
     }
@@ -111,12 +117,43 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-    private fun jumptoSettingFragment(){
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.nav_host_fragment_content_main, SettingFragment())
-            .commit()
-        Toast.makeText(this,"BUG：嘿，页面重叠，有空再改", Toast.LENGTH_SHORT).show()
+//    private fun jumptoSettingFragment(){
+//        supportFragmentManager
+//            .beginTransaction()
+//            .replace(R.id.nav_host_fragment_content_main, SettingFragment())
+//            .commit()
+//        Toast.makeText(this,"BUG：嘿，页面重叠，有空再改", Toast.LENGTH_SHORT).show()
+//    }
+
+    private val job = Job()
+    private val scope = CoroutineScope(job)
+    private fun checkUpdateHome() {
+        scope.launch {
+            val downUrl = Update().checkUpdate()
+            if (downUrl != null) {
+                Snackbar.make(binding.root, "检测到有新版本可以", 15000)
+                    .setAction("下载") {
+                        val uri = Uri.parse(downUrl)
+                        startActivity(Intent(Intent.ACTION_VIEW, uri))
+                    }
+                    .show()
+            }
+        }
     }
+
+//    private fun fistTimeDialog() {
+//        AlertDialog.Builder(this).apply {
+//            setTitle("使用说明")
+//            setMessage("shuoming")
+//            setCancelable(false)
+//            setPositiveButton("确认") {
+//                dialog, which ->
+//            }
+//            setNegativeButton("退出") {
+//                dialog, which -> exitProcess(0)
+//            }
+//            show()
+//        }
+//    }
 
 }

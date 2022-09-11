@@ -1,18 +1,21 @@
 package alpherk.njtechlogin.util
 
+import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
-import android.os.Build
-import androidx.annotation.RequiresApi
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import android.net.Uri
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat.startActivity
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONArray
 import org.json.JSONObject
 
-class ChekUpdate {
- 
+class Update {
+
+
+
     fun checkUpdate(): String? {
         try {
             val client = OkHttpClient()
@@ -67,34 +70,34 @@ class ChekUpdate {
     }
 
 
-    // 以下检查更新已被弃用
-    class App(val version: String, val versionCode: Long)
-    fun checkUpdateDeprecated(): Boolean {
-        try {
-            val client = OkHttpClient()
-            val request = Request.Builder()
-                .url("https://alpherk.github.io/NjtechAutoLogin/release/version.json")
-                .build()
-            val response = client.newCall(request).execute()
-            val responseData = response.body?.string()
-            if (responseData != null) {
-                val versionList: List<App> = parseJsonDeprecated(responseData)
-                val currentVer = getCurrentVerCode()
-                for (code in versionList) {
-                    if (code.versionCode > currentVer) {
-                        return true
-                    }
-                }
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-        return false
-    }
-    private fun parseJsonDeprecated(jsonData: String): List<App> {
-        val gson = Gson()
-        val typeOf = object : TypeToken<List<App>>() {}.type
-        return gson.fromJson(jsonData, typeOf)
-    }
+//    // 以下检查更新已被弃用
+//    class App(val version: String, val versionCode: Long)
+//    fun checkUpdateDeprecated(): Boolean {
+//        try {
+//            val client = OkHttpClient()
+//            val request = Request.Builder()
+//                .url("https://alpherk.github.io/NjtechAutoLogin/release/version.json")
+//                .build()
+//            val response = client.newCall(request).execute()
+//            val responseData = response.body?.string()
+//            if (responseData != null) {
+//                val versionList: List<App> = parseJsonDeprecated(responseData)
+//                val currentVer = getCurrentVerCode()
+//                for (code in versionList) {
+//                    if (code.versionCode > currentVer) {
+//                        return true
+//                    }
+//                }
+//            }
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
+//        return false
+//    }
+//    private fun parseJsonDeprecated(jsonData: String): List<App> {
+//        val gson = Gson()
+//        val typeOf = object : TypeToken<List<App>>() {}.type
+//        return gson.fromJson(jsonData, typeOf)
+//    }
 
 }
