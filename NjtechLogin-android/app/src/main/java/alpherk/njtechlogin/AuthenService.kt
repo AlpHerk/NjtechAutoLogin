@@ -8,7 +8,7 @@ import android.content.Intent
 import android.os.IBinder
 import kotlinx.coroutines.*
 
-class LoginService : Service() {
+class AuthenService : Service() {
     private val job = Job()
     private val scope = CoroutineScope(job)
 
@@ -21,7 +21,7 @@ class LoginService : Service() {
         scope.launch {
             launch(Dispatchers.IO) {
                 if (!NetUtil.setWiFiEnabled()) {
-                    showToast("安卓9以上版本，请手动打开 WiFi")
+                    showToast("安卓9以上，请手动打开 WiFi")
                     stopSelf()
                 }
             }

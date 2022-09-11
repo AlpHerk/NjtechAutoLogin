@@ -1,7 +1,7 @@
-package alpherk.njtechlogin.main.info
+package alpherk.njtechlogin.main.about
 import alpherk.njtechlogin.databinding.FragmentInfoBinding
-import alpherk.njtechlogin.main.info.feedback.FeedbackActivity
-import alpherk.njtechlogin.main.info.help.HelpActivity
+import alpherk.njtechlogin.main.about.feedback.FeedbackActivity
+import alpherk.njtechlogin.main.about.help.HelpActivity
 import alpherk.njtechlogin.util.ChekUpdate
 import alpherk.njtechlogin.util.MyApp
 import alpherk.njtechlogin.util.showToast

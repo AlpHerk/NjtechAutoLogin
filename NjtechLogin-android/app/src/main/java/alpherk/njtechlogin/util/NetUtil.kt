@@ -1,4 +1,6 @@
 package alpherk.njtechlogin.util
+import alpherk.njtechlogin.AuthenService
+import alpherk.njtechlogin.main.setting.SettingData
 import alpherk.njtechlogin.util.MyApp.Companion.context
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -8,10 +10,12 @@ import android.net.wifi.WifiManager
 import android.net.wifi.WifiNetworkSuggestion
 import android.os.Build
 import android.provider.Settings
+import android.util.Log
 import androidx.annotation.RequiresApi
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.util.concurrent.TimeUnit
+import kotlin.concurrent.thread
 
 
 object NetUtil {
@@ -38,14 +42,21 @@ object NetUtil {
         } else true
     }
 
-    fun isNetWorked(): Boolean {
+    fun isWifiEnable(): Boolean {
+        wifiManager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        return wifiManager.isWifiEnabled
+    }
+
+    fun pingNetwork(): Boolean {
         return try {
             client.newCall(Request.Builder().url("https://www.baidu.com").build()).execute()
             true
         } catch (e:java.lang.Exception) {
+            Log.d("HERKS", e.toString())
             false
         }
     }
+
 
     @RequiresApi(Build.VERSION_CODES.Q)
     fun connectWiFi() {

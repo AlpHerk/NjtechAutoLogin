@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/nav_info"
-        android:name="alpherk.njtechlogin.main.info.InfoFragment"
+        android:name="alpherk.njtechlogin.main.about.InfoFragment"
         android:label="@string/menu_about"
         tools:layout="@layout/fragment_info" />
 

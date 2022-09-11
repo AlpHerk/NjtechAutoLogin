@@ -1,4 +1,4 @@
-package alpherk.njtechlogin.main.info.feedback
+package alpherk.njtechlogin.main.about.feedback
 import alpherk.njtechlogin.databinding.ActivityFeedbackBinding
 import android.content.Intent
 import android.net.Uri

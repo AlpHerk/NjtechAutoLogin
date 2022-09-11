@@ -8,9 +8,9 @@ android {
 
     defaultConfig {
         applicationId "alpherk.njtechlogin"
-        minSdk 21
+        minSdk 28
         targetSdk 31
-        versionCode 124
+        versionCode 125
         versionName "@string/app_version_name"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

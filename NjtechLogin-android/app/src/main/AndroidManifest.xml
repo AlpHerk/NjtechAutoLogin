@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="alpherk.njtechlogin">
-
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:name=".util.MyApp"
@@ -16,10 +15,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NJtechAutologin">
-        <service
-            android:name=".UpDateService"
-            android:enabled="true"
-            android:exported="false" />
 
         <activity
             android:name=".MainActivity"
@@ -51,18 +46,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".help.HelpActivity"
+            android:name="alpherk.njtechlogin.main.about.help.HelpActivity"
             android:exported="true"
             android:label="@string/app_help"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".feedback.FeedbackActivity"
+            android:name="alpherk.njtechlogin.main.about.feedback.FeedbackActivity"
             android:exported="true"
             android:label="@string/app_feedback"
             android:parentActivityName=".MainActivity" />
 
         <service
-            android:name=".LoginService"
+            android:name=".AuthenService"
             android:enabled="true"
             android:exported="false">
             <intent-filter>

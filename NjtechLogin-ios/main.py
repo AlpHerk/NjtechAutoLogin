@@ -19,7 +19,7 @@ class AutoLogin():
 
     ## ↓↓↓ 不熟悉python 以下代码谨慎修改 ↓↓↓ ##
 
-    def __init__(self, usr, pwd, corp): 
+    def __init__(self): 
         self.__getLoginData()
 
     def __getLoginData(self):
@@ -54,7 +54,7 @@ class AutoLogin():
         for i in range(11):
             print('\r正在连接：{0} {1}%'.format('▉▉'*i, (i*10)), end='');sleep(0.05)
 
-    def __isConnectNet(self):
+    def isConnectNet(self):
         try: rq.get("https://www.baidu.com", headers=GETHEADER, timeout=2)
         except: return False
         return True
@@ -62,7 +62,7 @@ class AutoLogin():
     def toConnect(self):
         self.__loginThread()
         for _ in range(3):
-            if self.__isConnectNet(): 
+            if self.isConnectNet(): 
                 print("\n认证成功，请畅享网络~")
                 break
             else: self.__loginThread()
@@ -93,6 +93,9 @@ if __name__ == '__main__':
         try:
             login = AutoLogin()
             login.toConnect()
-            break
+            if login.isConnectNet():
+                break
+            else:
+                raise Exception
         except:
             continue

@@ -72,7 +72,7 @@ object AutoLogin {
 
     fun askLogin(UserData: List<String>): Boolean {
         return try { postRequest(UserData)
-            NetUtil.isNetWorked()
+            NetUtil.pingNetwork()
             true
         } catch (e:Exception) {
             false

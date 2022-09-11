@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">南工认证</string>
-    <string name="app_author">开发@无白Herk，后续计划界面优化更新</string>
-    <string name="app_version_code">务必到 build.gradle.app 中更新版本码</string>
-    <string name="app_version_name">1.2.4(修复android12闪退)</string>
+    <string name="app_author">开发 @ 无白Herk</string>
+    <string name="app_version_code">务必到 build.gradle.app 中更新版本号</string>
+    <string name="app_version_name">1.2.5</string>
 
     <string name="navigation_drawer_open">打开侧滑导航栏</string>
     <string name="navigation_drawer_close">关闭侧滑导航栏</string>
@@ -35,7 +35,7 @@
     <string name="app_description">《工大认证》是一款校园网自动认证的APP，致力于简化繁琐的登录过程。欢迎反馈问题及提出建议~</string>
     <string name="app_user_protocol">用户协议</string>
     <string name="app_privacy_agreement">隐私政策</string>
-    <string name="app_copyright_declare">copyright© 2021 Herk All rights reserved</string>
+    <string name="app_copyright_declare">copyright© 2022 Herk All rights reserved</string>
     <string name="action_gardnet_btn">守护服务</string>
     <string name="action_autorun_btn">软件自启</string>
 

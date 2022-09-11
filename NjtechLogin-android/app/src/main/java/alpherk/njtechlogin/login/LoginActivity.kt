@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
     @SuppressLint("CommitPrefEdits", "ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         binding.loginData = LoginData()
         setContentView(binding.root)
@@ -33,7 +34,6 @@ class LoginActivity : AppCompatActivity() {
             saveLoginData()
         }
     }
-
     private fun loadLoginData() {
         val netCompa  = LoginData().netCompa
         if (netCompa == "1") {

@@ -1,4 +1,6 @@
 package alpherk.njtechlogin
+import alpherk.njtechlogin.broadcast.NetReceiver
+import alpherk.njtechlogin.broadcast.ScreenReceiver
 import alpherk.njtechlogin.databinding.MainNavDrawerBinding
 import alpherk.njtechlogin.login.LoginActivity
 import alpherk.njtechlogin.login.LoginData
@@ -8,6 +10,9 @@ import alpherk.njtechlogin.util.LOGIN_FILE
 import alpherk.njtechlogin.util.USERNAME
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
+import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -25,6 +30,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: MainNavDrawerBinding
     private lateinit var appBarConfig: AppBarConfiguration
+    private lateinit var screenReceiver: ScreenReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,11 +39,12 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         val (username, password) = LoginData().postUserData()
-        if (username != "" && password != "") {
-            startService(Intent(this, LoginService::class.java))
-        } else {
+        if (username == "" || password == "") {
             startActivity(Intent(this, LoginActivity::class.java))
+        } else {
+            startService(Intent(this, AuthenService::class.java))
         }
+
         if (SettingData().isGardNet) {
             startService(Intent(this, GuardService::class.java))
         }
@@ -47,10 +54,31 @@ class MainActivity : AppCompatActivity() {
         appBarConfig = AppBarConfiguration(menuset, binding.drawerLayout)
         setupActionBarWithNavController(navController, appBarConfig)
         binding.navView.setupWithNavController(navController)
+
+
+
+        val filter = IntentFilter()
+        filter.addAction(Intent.ACTION_SCREEN_ON)   // 注册解锁屏幕广播
+//        filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+//        filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
+//        val netReceiver = NetReceiver()
+//        registerReceiver(netReceiver, filter)
+        val screenReceiver = ScreenReceiver()
+        registerReceiver(screenReceiver, filter)
+
+
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(screenReceiver)
+    }
+
+
+
     @SuppressLint("SetTextI18n") // 首页侧滑栏菜单配置
     override fun onSupportNavigateUp(): Boolean {
-        val studnName: TextView = findViewById(R.id.netName)
+        val stunName : TextView = findViewById(R.id.netName)
         val studentID: TextView = findViewById(R.id.studentID)
         val prefs = getSharedPreferences(LOGIN_FILE,0)
         val username = prefs.getString(USERNAME, "")
@@ -59,7 +87,7 @@ class MainActivity : AppCompatActivity() {
              studentID.text = "点击登录或修改账号"
         else studentID.text = "学号: $username"
 
-        studnName.setOnClickListener {
+        stunName.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
         }
         studentID.setOnClickListener {
@@ -69,6 +97,7 @@ class MainActivity : AppCompatActivity() {
 
         return navController.navigateUp(appBarConfig) || super.onSupportNavigateUp()
     }
+
 
     // 标题栏的 toolbar 菜单设置
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -82,7 +111,6 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
     private fun jumptoSettingFragment(){
         supportFragmentManager
             .beginTransaction()

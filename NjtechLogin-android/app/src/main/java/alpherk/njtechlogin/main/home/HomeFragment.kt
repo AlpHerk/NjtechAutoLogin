@@ -1,5 +1,5 @@
 package alpherk.njtechlogin.main.home
-import alpherk.njtechlogin.LoginService
+import alpherk.njtechlogin.AuthenService
 import alpherk.njtechlogin.databinding.FragmentHomeBinding
 import android.content.Intent
 import android.os.Bundle
@@ -16,7 +16,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         binding.requestLoginBtn.setOnClickListener {
-            activity?.startService(Intent(activity, LoginService::class.java))
+            activity?.startService(Intent(activity, AuthenService::class.java))
         }
 
         return binding.root

@@ -4,7 +4,8 @@
     <color name="white">#FFFFFF</color>
     <color name="NJ_blue">#47A6DC</color>
     <color name="NJ_blue2">#548AAA</color>
-    <color name="bg_card_gray">#8DC7E3</color>
+    <color name="card_bg_gray">#A2C2D2</color>
+    <color name="bg_card_gray">#A2C2D2</color>
     <color name="bg_card_silver">#CCCBDBE8</color>
     <color name="login_green">#00B386</color>
 </resources>
