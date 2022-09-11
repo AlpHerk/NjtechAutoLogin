@@ -3,7 +3,7 @@ import sys
 import threading
 from time import sleep
 from library import requests as rq 
-
+rq.packages.urllib3.disable_warnings() 
 
 class AutoLogin():
     """
@@ -33,7 +33,7 @@ class AutoLogin():
         if errorflag: sys.exit(0)
 
     def __requestLogin(self):
-        resp = rq.get(url=LOGINURL, headers=GETHEADER)
+        resp = rq.get(url=LOGINURL, headers=PSTHEADER, verify=False)
         lt   = re.search('lt\" value=\"(.*?)\"',        resp.text).groups()[0]
         exe  = re.search('execution\" value=\"(.*?)\"', resp.text).groups()[0]
         form = {
@@ -41,7 +41,7 @@ class AutoLogin():
             "channelshow": self.broadban,         "channel":     self.bandabbr,
             "lt":                     lt,         "execution":             exe,
             "_eventId":         "submit",         "login":               "登录"}
-        rq.post(url=LOGINURL, headers=PSTHEADER, data=form, cookies=resp.cookies)
+        rq.post(url=LOGINURL, headers=PSTHEADER, data=form, cookies=resp.cookies, verify=False)
 
     def __loginThread(self):
         threads = []
@@ -55,7 +55,7 @@ class AutoLogin():
             print('\r正在连接：{0} {1}%'.format('▉▉'*i, (i*10)), end='');sleep(0.05)
 
     def isConnectNet(self):
-        try: rq.get("https://www.baidu.com", headers=GETHEADER, timeout=2)
+        try: rq.get("https://www.baidu.com", headers=PSTHEADER, timeout=2, verify=False)
         except: return False
         return True
 
@@ -71,8 +71,7 @@ class AutoLogin():
 
 ################## 全局常量 请勿修改 ##################
 LOGINURL  = "https://u.njtech.edu.cn/cas/login?service=https://u.njtech.edu.cn/oauth2/authorize?client_id=Oe7wtp9CAMW0FVygUasZ&response_type=code&state=njtech&s=f682b396da8eb53db80bb072f5745232"
-USERAGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.2 Safari/605.1.15"
-GETHEADER = {'User-Agent': USERAGENT}
+USERAGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.2 Safari/605.1.15" 
 PSTHEADER = {
     "Host": "u.njtech.edu.cn",
     "Content-Type": "application/x-www-form-urlencoded",
@@ -81,8 +80,7 @@ PSTHEADER = {
     "Connection": "keep-alive",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "User-Agent": USERAGENT,
-    "Referer":    LOGINURL,
-    "Content-Length": "207",
+    "Referer":    LOGINURL, 
     "Accept-Language": "zh-CN,zh-Hans;q=0.9",
 } ############### 全局常量 请勿修改 ###################
 
