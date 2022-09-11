@@ -1,4 +1,4 @@
-package alpherk.njtechlogin.help
+package alpherk.njtechlogin.main.info.help
 import alpherk.njtechlogin.databinding.ActivityHelpBinding
 import android.content.Intent
 import android.net.Uri

@@ -1,7 +1,7 @@
 package alpherk.njtechlogin.main.info
 import alpherk.njtechlogin.databinding.FragmentInfoBinding
-import alpherk.njtechlogin.feedback.FeedbackActivity
-import alpherk.njtechlogin.help.HelpActivity
+import alpherk.njtechlogin.main.info.feedback.FeedbackActivity
+import alpherk.njtechlogin.main.info.help.HelpActivity
 import alpherk.njtechlogin.util.ChekUpdate
 import alpherk.njtechlogin.util.MyApp
 import alpherk.njtechlogin.util.showToast
@@ -45,9 +45,11 @@ class InfoFragment : Fragment() {
     fun update() {
         scope.launch {
             showToast("版本检测中~")
-            if (ChekUpdate().checkUpdate()) {
+            val downUrl = ChekUpdate().checkUpdate()
+
+            if (downUrl != null) {
                 showToast("有新版本可用")
-                val uri = Uri.parse("https://alpherk.github.io/NjtechAutoLogin/release/NjtechLogin.apk")
+                val uri = Uri.parse(downUrl)
                 startActivity(Intent(Intent.ACTION_VIEW, uri))
             } else {
                 showToast("已更新最新版")
