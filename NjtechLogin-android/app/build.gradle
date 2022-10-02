@@ -10,7 +10,7 @@ android {
         applicationId "alpherk.njtechlogin"
         minSdk 28
         targetSdk 31
-        versionCode 125
+        versionCode 126
         versionName "@string/app_version_name"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

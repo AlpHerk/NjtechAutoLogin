@@ -49,17 +49,15 @@
                         <div class="col-12">
                             <h2 class="text-center text-md-left">南工业大学 校园网</h2>
                             <h2 class="text-center text-md-left">
-                                <span class="badge align-bottom">NJtech Auto Login</span> 认证服务 </h2>
+                                <span class="badge align-bottom">NJtech Auto Login</span>
+                                认证服务
+                            </h2>
                         </div>
                         <div class="col-12">
-                            <p class="text-muted text-center text-md-left">
-                                简化登录 避免繁琐认证<br>
-                                一键认证 网络持续畅通<br>
-                                <h2><a id="python_downurl", href="https://github.com/AlpHerk">下载最新电脑版(支持验证码)</a></h2>
-                            </p>
+                            <p class="text-muted text-center text-md-left">简化登录 避免繁琐认证<br>一键认证 网络持续畅通</p>
                         </div>
                         <div class="col-4 align-self-end">
-                            <a id="windows_downurl", href="https://github.com/AlpHerk">
+                            <a href="./release/NjtechAutoLogin-v6.2.0.zip">
                                 <button class="btn btn-primary w-100">
                                     <img src="images/windows.svg" height="14px"><span
                                         class="text-nowrap align-middle ml-2 d-none d-lg-inline"> Windows</span>
@@ -67,7 +65,7 @@
                             </a>
                         </div>
                         <div class="col-4 align-self-end">
-                            <a id="android_downurl", href="https://github.com/AlpHerk">
+                            <a href="./release/NjtechAutoLogin-v1.2.4.apk">
                                 <button class="btn btn-success w-100">
                                     <img src="images/android.svg" height="22px">
                                     <span
@@ -294,33 +292,6 @@
 
     <script src="lib/js/jquery.js"></script>
     <script src="lib/js/bootstrap.bundle.min.js"></script>
-
-    <script type="text/javascript">
-        var httpRequest = new XMLHttpRequest(); 
-        httpRequest.open('GET', 'https://api.github.com/repos/AlpHerk/NjtechAutoLogin/releases/latest', true); 
-        httpRequest.send(); 
- 
-        httpRequest.onreadystatechange = function () {
-            if (httpRequest.readyState == 4 && httpRequest.status == 200) {
-                var text = httpRequest.responseText;
-                var obj = JSON.parse(text); 
-
-                if (/.apk$/.test(obj.assets[0].name)) {
-                    document.getElementById("android_downurl").href = obj.assets[0].browser_download_url;
-                }
-                if (/.py$/.test(obj.assets[1].name)) {
-                    document.getElementById("python_downurl").href = obj.assets[2].browser_download_url;
-                }
-                if (/.zip$/.test(obj.assets[3].name)) {
-                    document.getElementById("windows_downurl").href = obj.assets[2].browser_download_url;
-                }
-                 
-                
-            }
-        };
-
-    </script>
-    
 </body>
 
 </html>
