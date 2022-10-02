@@ -18,11 +18,14 @@ requests.packages.urllib3.disable_warnings()
     代码在原基础上增加了验证码识别，其他功能不变
 
 使用步骤
-- 1.在电脑上下载 python 安装包，链接：https://www.python.org/downloads/release
-- 2.在控制台安装依赖
+ 1. 在电脑上下载 python 安装包，链接：https://www.python.org/downloads/release
+ 2. 在控制台安装依赖
         pip install ddddocr
         pip install requests 
-- 3.在下方XXX处填写学号/密码/宽带
+ 3. 在下方XXX处填写学号/密码/宽带
+ 4. 百度：开机启动 python 脚本
+ 5. 如果开机弹黑窗嫌烦，脚本后缀改为 .pyw
+ 6. 更详细的说明及疑惑，可私信我的 CSDN
 
 其他说明
     若后期校园网验证码仍简单，会考虑更新 C++版的桌面软件、安卓App
