@@ -1,17 +1,14 @@
-import re 
-import ddddocr 
-import requests
-import threading
-from time import sleep
-requests.packages.urllib3.disable_warnings() 
-# from library import requests
-
-
-"""
 #### ✉️ 联系反馈：CSDN@ AlpHerkin(无白|Herk)
 #### ✅ 软件官网：https://alpherk.github.io/NjtechAutoLogin/
 #### 📢 详细说明：https://blog.csdn.net/Alpherkin/article/details/115599094
 #### 🧊 代码版本：v1.0.1 
+
+
+USR = "2019XXXXXXXX"  # 填入自己的学号
+PWD = "XXXXXXXXXXXX"  # 填入自己的密码
+COP = "中国移动"       # 中国移动/中国电信
+
+"""
 
 软件介绍
     此脚本为单文件，仅需安装了依赖模块、填写账号即可
@@ -22,7 +19,7 @@ requests.packages.urllib3.disable_warnings()
  2. 在控制台安装依赖
         pip install ddddocr
         pip install requests 
- 3. 在下方XXX处填写学号/密码/宽带
+ 3. 在最上方XXX处填写学号/密码/宽带
  4. 百度：开机启动 python 脚本
  5. 如果开机弹黑窗嫌烦，脚本后缀改为 .pyw
  6. 更详细的说明及疑惑，可私信我的 CSDN
@@ -37,27 +34,24 @@ requests.packages.urllib3.disable_warnings()
     
 """
 
+import re 
+import ddddocr 
+import requests
+import threading
+from time import sleep
+requests.packages.urllib3.disable_warnings() 
+# from library import requests
+
 class AutoLogin():
- 
+    """ 参数：学号、密码、运营商
+    """
 
-    学号 = "2019XXXXXXXX"  # 填入自己的学号
-    密码 = "XXXXXXXXXXXX"  # 填入自己的密码
-    宽带 = "中国移动"       # 中国移动/中国电信
-
-
-
-
-
-
-
-
-
-
-    ## ↓↓↓ 不熟悉python 以下代码谨慎修改 ↓↓↓ ##
-
-    def __init__(self): 
-        if   self.宽带 == '中国移动': self.bandabbr = '@cmcc'
-        elif self.宽带 == '中国电信': self.bandabbr = '@telecom'
+    def __init__(self, usr, pwd, brand): 
+        self.username = usr
+        self.password = pwd
+        self.brancorp = brand
+        if   self.brancorp == '中国移动': self.bandabbr = '@cmcc'
+        elif self.brancorp == '中国电信': self.bandabbr = '@telecom'
 
     def postLogin(self):
         """ 校园网认证核心代码 """
@@ -69,8 +63,8 @@ class AutoLogin():
         lt   = re.search('lt\" value=\"(.*?)\"',        resp.text).groups()[0]
         exe  = re.search('execution\" value=\"(.*?)\"', resp.text).groups()[0]
         form = {
-            "username":    self.学号,      "password":         self.密码,
-            "channelshow": self.宽带,      "channel":     self.bandabbr,
+            "username":    self.username,      "password":         self.password,
+            "channelshow": self.brancorp,      "channel":     self.bandabbr,
             "lt":                 lt,     "execution":              exe,
             "_eventId":     "submit",     "captcha":              capt}
         requests.post(url=LOGINURL, headers=PSTHEADER, data=form, cookies=resp.cookies, verify=False)
@@ -125,7 +119,7 @@ PSTHEADER = {
 
 if __name__ == '__main__':
    
-    login = AutoLogin()
+    login = AutoLogin(USR, PWD, COP)
 
     login.toConnect()
   
