@@ -11,7 +11,7 @@ COP = "cmcc"          # cmcc/telecom
 import requests
 import re 
 
-ip = ""
+ip  = ""
 url = "http://10.50.255.11/a70.htm"
 url_login = f"http://10.50.255.11:801/eportal/?c=ACSetting&a=Login&protocol=http:&hostname=10.50.255.11&iTermType=1&mac=00-00-00-00-00-00&ip={ip}&enAdvert=0&queryACIP=0&jsVersion=2.4.3&loginMethod=1"
 url_logout = f"http://10.50.255.11:801/eportal/?c=ACSetting&a=Logout&wlanuserip={ip}&wlanacip=10.50.255.1&wlanacname=me60&port=&hostname=10.50.255.11&iTermType=1&session=&queryACIP=0&mac=00-00-00-00-00-00&jsVersion=2.4.3"
