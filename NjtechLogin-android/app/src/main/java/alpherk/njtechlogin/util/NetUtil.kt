@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit
 object NetUtil {
 
     private lateinit var wifiManager: WifiManager
+
     val client: OkHttpClient = OkHttpClient.Builder()
         .connectTimeout(5, TimeUnit.SECONDS)
         .writeTimeout(5, TimeUnit.SECONDS)

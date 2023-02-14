@@ -1,3 +1,9 @@
+# 警告
+本目录 NjtechLogin-pyqt 基于 PyQt5 开发，具有 GUI 界面，适用于 PC 端(win/linux/mac)
+考虑软件运行速度，采用了 C++ 重构 PC 端项目，见目录 NjtechLogin-qt-cpp，故此目录不再维护。
+
+ 
+
 ``` —————————————————————— 软件打包命令 ——————————————————————
 
 pyinstaller NjtechAutologin.py -w --clean -i pyqtui\icons\NJtech02.ico --log-level WARN --hidden-import PyQt5.sip --noconfirm -p service -p windo -p windo\ui_init
