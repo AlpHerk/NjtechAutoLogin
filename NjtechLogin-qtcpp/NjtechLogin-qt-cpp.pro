@@ -16,6 +16,7 @@ SOURCES += \
     custoui/mainwidget.cpp  \
     service/authen.cpp \
     service/update.cpp      \
+    service/utils.cpp \
     window/main_wdo.cpp     \
     main.cpp \
 
@@ -29,6 +30,7 @@ HEADERS += \
     custoui/titlebar.h      \
     service/authen.h \
     service/update.h        \
+    service/utils.h \
     window/main_wdo.h       \
 
 

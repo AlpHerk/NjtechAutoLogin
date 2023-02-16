@@ -3,7 +3,6 @@
 
 #include <QNetworkRequest>
 #include <QNetworkReply>
-#include <QHostInfo>
 #include <QProcess>
 #include <QThread>
 
@@ -24,12 +23,16 @@ protected:
 
 
 private:
-    void authBack(QNetworkReply *reply);
-    bool readUsrData();
-    void authenCore();
-
-    void authenCoreDeprecated();
     bool reConnect();
+    bool readUsrData();
+
+    void authBack(QNetworkReply *reply);
+    void authBackDeprecated(QNetworkReply *reply);
+
+    /// 已弃用的函数
+    void authenCore();
+    void authenCoreDeprecated();
+    QString getIPv4fromNetDeprecated();
 
     QNetworkAccessManager *postManager;
     QNetworkAccessManager *getManager;

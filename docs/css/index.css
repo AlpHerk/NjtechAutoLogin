@@ -77,6 +77,8 @@ nav .nav-item {
   top: -15%;
   right: 0;
 }
+
+
 .intro_page {
   padding-top: 4rem;
 }
@@ -108,6 +110,8 @@ nav .nav-item {
   font-size: 13px;
   text-align: center;
 }
+
+
 .faq_page {
   padding-top: 4rem;
 }
@@ -145,6 +149,60 @@ nav .nav-item {
 .faq_page .container .card .btn:focus {
   box-shadow: 0 0;
 }
+
+
+.upgrade_page {
+  padding-top: 4rem;
+}
+.upgrade_page h2 span {
+  color: #4185f4;
+}
+.upgrade_page #exhi_img4 {
+  animation: move 2s infinite alternate;
+}
+.upgrade_page .container .row .row .col>div {
+  margin: 15px 0;
+  padding: 1rem;
+  vertical-align: center;
+  border: 1px solid #d9eafc;
+}
+.upgrade_page .container .row .row .col>div div {
+  font-size: 18px;
+  text-align: left;
+  padding-bottom: 0.5rem;
+}
+.upgrade_page .container .row .row .col>div p {
+  font-size: 13px;
+  text-align: left;
+}
+
+
+.introduce_page {
+  padding-top: 4rem;
+}
+.introduce_page h2 span {
+  color: #4185f4;
+}
+.introduce_page #exhi_img4 {
+  animation: move 2s infinite alternate;
+}
+.introduce_page .container .row .row .col>div {
+  margin: 15px 0;
+  padding: 1rem;
+  vertical-align: center;
+  border: 1px solid #d9eafc;
+}
+.introduce_page .container .row .row .col>div div {
+  font-size: 18px;
+  text-align: left;
+  padding-bottom: 0.5rem;
+}
+.introduce_page .container .row .row .col>div p {
+  font-size: 13px;
+  text-align: left;
+}
+
+
 @media (max-width: 768px) {
   .home_page .container {
     padding: 15vh 0;

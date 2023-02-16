@@ -4,9 +4,7 @@ import alpherk.njtechlogin.databinding.MainNavDrawerBinding
 import alpherk.njtechlogin.login.LoginActivity
 import alpherk.njtechlogin.login.LoginData
 import alpherk.njtechlogin.main.setting.SettingData
-import alpherk.njtechlogin.util.LOGIN_FILE
-import alpherk.njtechlogin.util.USERNAME
-import alpherk.njtechlogin.util.Update
+import alpherk.njtechlogin.util.*
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.IntentFilter
@@ -113,6 +111,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.toolbar_setting -> Toast.makeText(this,"跳转失败，请从侧滑栏打开设置", Toast.LENGTH_SHORT).show()
+            R.id.toolbar_logout_net -> startService(Intent(this, AuthenOffService::class.java))
             R.id.toolbar_logout -> exitProcess(0)
         }
         return super.onOptionsItemSelected(item)
@@ -131,7 +130,7 @@ class MainActivity : AppCompatActivity() {
         scope.launch {
             val downUrl = Update().checkUpdate()
             if (downUrl != null) {
-                Snackbar.make(binding.root, "检测到有新版本可以", 15000)
+                Snackbar.make(binding.root, "检测到有新版本", 30000)
                     .setAction("下载") {
                         val uri = Uri.parse(downUrl)
                         startActivity(Intent(Intent.ACTION_VIEW, uri))

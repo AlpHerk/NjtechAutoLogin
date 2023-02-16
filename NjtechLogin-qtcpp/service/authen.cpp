@@ -5,6 +5,7 @@
 #include <QTimer>
 
 #include "authen.h"
+#include "utils.h"
 #include "constants.h"
 
 /// 类静态变量，需在类外初始化
@@ -67,28 +68,13 @@ void Authen::authenCore()
 {
     QString timeStr = QDateTime::currentDateTime().toString(timeForm);
 
-    // 第一步，获取登录页的认证数据
-    QNetworkRequest request;
-    request.setUrl(LOGIN_URL);
-    request.setRawHeader("Content-Type", "text/html;charset=gbk");
-    request.setRawHeader("User-Agent", USERAGENT);
+    Utils::getSysProxy();
 
-    getManager  = new QNetworkAccessManager(this);
-    QNetworkReply *reply = getManager->get(request);
-
-    QEventLoop loop;
-    connect(getManager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
-    QTimer::singleShot(5000, &loop, &QEventLoop::quit);
-    loop.exec();
+    // 第一步，获取本机 ip
+    QString ipv4 = Utils::getIpv4Adds();
 
     // 第二步，发送请求进行网络认证
-    if (reply->error()==QNetworkReply::NoError) {
-        QByteArray byte   = reply->readAll();
-
-        QString    html   = QString(byte);
-        QRegularExpression static ip_re("v46ip=\'(?<ip>.*?)\'");
-        QString    v46ip  = ip_re.match(html).captured("ip");
-
+    if (ipv4 != "") {
         QByteArray postdata;
         QString param1 = "DDDDD=,0," + username + netCorpE;
         QString param2 = "&upass=" + password;
@@ -108,69 +94,119 @@ void Authen::authenCore()
         postdata.append(param7.toUtf8());
         postdata.append(param8.toUtf8());
 
-        QNetworkRequest postreq;
-        postreq.setUrl(LOGIN_URL1 + v46ip + LOGIN_URL3);
-        postreq.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
-        postreq.setRawHeader("User-Agent", USERAGENT);
+        QNetworkRequest reqLogin;
+        reqLogin.setUrl(LOGIN_URL1 + ipv4 + LOGIN_URL3);
+        reqLogin.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
+        reqLogin.setRawHeader("User-Agent", USERAGENT);
+        reqLogin.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy);
 
         postManager = new QNetworkAccessManager(this);
+
         connect(postManager, &QNetworkAccessManager::finished, this, &Authen::authBack);
-        postManager->post(postreq, postdata);
+
+        postManager->post(reqLogin, postdata);
 
     } else {
-        emit emitAuthenInfo(timeStr + "🟥 响应错误：" + reply->errorString().toUtf8());
+        emit emitAuthenInfo(timeStr + "🟥 本机ip获取错误：");
     }
-    getManager->deleteLater();
 }
-
 
 /// 退出认证
 void Authen::toLogout()
 {
     Authen::isGuardOn = false; // 手动点击退出认证按钮，暂时关闭守护服务
-
     QString timeStr = QDateTime::currentDateTime().toString(timeForm);
 
-    // 第一步，获取登录页的认证数据
-    QNetworkRequest request;
-    request.setUrl(LOGIN_URL);
-    request.setRawHeader("Content-Type", "text/html;charset=gbk");
-    request.setRawHeader("User-Agent", USERAGENT);
+//    第一步，从网页获取本机 ip
+//    QNetworkRequest reqLogout;
+//    reqLogout.setUrl(LOGIN_URL);
+//    reqLogout.setRawHeader("Content-Type", "text/html;charset=gbk");
+//    reqLogout.setRawHeader("User-Agent", USERAGENT);
 
-    getManager  = new QNetworkAccessManager(this);
-    QNetworkReply *reply = getManager->get(request);
+//    getManager  = new QNetworkAccessManager(this);
+//    QNetworkReply *reply = getManager->get(reqLogout);
 
-    QEventLoop loop;
-    connect(getManager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
-    QTimer::singleShot(5000, &loop, &QEventLoop::quit);
-    loop.exec();
+//    QEventLoop loop;
+//    connect(getManager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
+//    QTimer::singleShot(5000, &loop, &QEventLoop::quit);
+//    loop.exec();
 
-    // 第二步，发送请求退出网络认证
-    if (reply->error()==QNetworkReply::NoError) {
-        QByteArray byte   = reply->readAll();
+    // 第一步，获取本机 ip
+    QString ipv4 = Utils::getIpv4Adds();
 
-        QString    html   = QString(byte);
-        QRegularExpression static ip_re("v46ip=\'(?<ip>.*?)\'");
-        QString    v46ip  = ip_re.match(html).captured("ip");
+    // 第二步，发送退出网络认证请求
+    if (ipv4 != "") {
 
         QNetworkRequest postreq;
-        postreq.setUrl(LOGOUT_URL1 + v46ip + LOGOUT_URL3);
+        postreq.setUrl(LOGOUT_URL1 + ipv4 + LOGOUT_URL3);
         postreq.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
         postreq.setRawHeader("User-Agent", USERAGENT);
+        postreq.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::ManualRedirectPolicy);
 
         QByteArray postdata;
-        postdata.append("退出");
+        postdata.append("");
 
         postManager = new QNetworkAccessManager(this);
+
         connect(postManager, &QNetworkAccessManager::finished, this, &Authen::authBack);
+
         postManager->post(postreq, postdata);
 
     } else {
-        emit emitAuthenInfo(timeStr + "🟥 响应错误：" + reply->errorString().toUtf8());
+        emit emitAuthenInfo(timeStr + "🟥 本机ip获取错误：");
     }
-    getManager->deleteLater();
+//    getManager->deleteLater();
 }
 
+/// 响应回调
+void Authen::authBack(QNetworkReply *reply)
+{
+    QString timeStr = QDateTime::currentDateTime().toString(timeForm);
+    QVariant status  = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
+
+    if (status == 302) {
+         // QString location = reply->attribute(QNetworkRequest::RedirectionTargetAttribute).toString();
+            QString location = reply->header(QNetworkRequest::LocationHeader).toString();
+         // qDebug() << "Herkin" << "重定向链接: " << location;
+         // qDebug() << "HERKIN" << QString(reply->readAll());
+
+            if (location.contains("ErrorMsg=bGRhcCBhdXRoIGVycm9y"   )) {
+                emit emitAuthenInfo(timeStr + "🟥 账号或密码错误（ldap校验）");
+                emit reqLoginWdo();
+                isGuardOn = false;  // 暂时关闭守护
+            }
+            else if (location.contains("ErrorMsg=dXNlcmlkIGVycm9yMQ")) {
+                emit emitAuthenInfo(timeStr + "🟥 请选择正确的运营商，移动/电信！");
+                isGuardOn = false;  // 暂时关闭守护
+            }
+            else if (location.contains("ACLogOut=1")) {
+                emit emitAuthenInfo(timeStr + "🟧 网络断开，守护关闭");
+            }
+            else if (location.contains("ACLogOut=2")) {
+                emit emitAuthenInfo(timeStr + "🟧 注销失败，守护关闭");
+            }
+            else if (location.contains("RetCode=2" )) {
+                emit emitAuthenInfo(timeStr + "✅ 终端 IP 已经在线");
+            }
+            else if (location.contains("3.htm"     )) {
+                emit emitAuthenInfo(timeStr + "✅ 认证成功，开始冲浪 ~");
+            }
+            else {
+                emit emitAuthenInfo(timeStr + "ℹ️ 未知重定向链接：" + location);
+            }
+
+    } else  {
+        emit emitAuthenInfo(timeStr + "🟥 请求错误：" + reply->errorString().toUtf8());
+        emit emitAuthenInfo(timeStr + "❕ 解决方法：");
+        emit emitAuthenInfo(timeStr + "      检查电脑代理是否关闭");
+        emit emitAuthenInfo(timeStr + "      网络 VPN 也可能影响认证：");
+    }
+
+    if (Utils::getSysProxy() != "") {
+        emit emitAuthenInfo(timeStr + "ℹ️ 若无法上网，请关闭系统代理");
+    }
+    postManager->deleteLater();
+}
 
 /// 网络守护服务
 void Authen::run()
@@ -234,7 +270,7 @@ bool Authen::reConnect()
 
 
 
-/// 此认证函数已弃用 2023.2.13
+/// @Deprecated 此认证函数已弃用 2023.2.13
 void Authen::authenCoreDeprecated()
 {
     QString timeStr = QDateTime::currentDateTime().toString(timeForm);
@@ -303,8 +339,8 @@ void Authen::authenCoreDeprecated()
     getManager->deleteLater();
 }
 
-/// 网络认证：回调函数
-void Authen::authBack(QNetworkReply *reply)
+/// @Deprecated 网络认证：回调函数 2023.2.16
+void Authen::authBackDeprecated(QNetworkReply *reply)
 {
     QVariant status  = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
     QString timeStr = QDateTime::currentDateTime().toString(timeForm);
@@ -334,6 +370,32 @@ void Authen::authBack(QNetworkReply *reply)
     postManager->deleteLater();
 }
 
+/// @Deprecated 从网页获取本机 ip 2023.2.16
+QString Authen::getIPv4fromNetDeprecated()
+{
+    // 第一步，从网页获取本机 ip
+    QNetworkRequest request;
+    request.setUrl(LOGIN_URL);
+    request.setRawHeader("Content-Type", "text/html;charset=gbk");
+    request.setRawHeader("User-Agent", USERAGENT);
 
+    getManager  = new QNetworkAccessManager(this);
+    QNetworkReply *reply = getManager->get(request);
+
+    QEventLoop loop;
+    connect(getManager, &QNetworkAccessManager::finished, &loop, &QEventLoop::quit);
+    QTimer::singleShot(5000, &loop, &QEventLoop::quit);
+    loop.exec();
+
+    if (reply->error()==QNetworkReply::NoError) {
+        QByteArray byte   = reply->readAll();
+
+        QString    html   = QString(byte);
+        QRegularExpression static ip_re("v46ip=\'(?<ip>.*?)\'");
+        QString    ipv4  = ip_re.match(html).captured("ip");
+        return ipv4;
+    }
+    return "";
+}
 
 

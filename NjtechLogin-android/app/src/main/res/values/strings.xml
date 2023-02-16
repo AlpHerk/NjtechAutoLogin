@@ -19,14 +19,15 @@
     <string name="prompt_password">密码</string>
 
     <string name="action_login">登录</string>
-    <string name="action_logout">退出</string>
-    <string name="action_setting">设置</string>
+    <string name="action_logout_net">注销认证</string>
+    <string name="action_logout">退出软件</string>
+    <string name="action_setting">设置中心</string>
 
     <string name="feedback_jump_tips">点击图标自动跳转</string>
     <string name="radio_cmcc">中国移动</string>
     <string name="radio_telecom">中国电信</string>
     <string name="app_version_name_prefix">版本：V </string>
-    <string name="app_slogan">畅享极致的网络体验</string>
+    <string name="app_slogan">畅享纯粹的网络</string>
     <string name="one_key_autologin">一键认证</string>
     <string name="app_slogan1">点击按钮，畅享网络</string>
     <string name="app_update_btn">版本更新</string>
@@ -35,7 +36,7 @@
     <string name="app_description">《工大认证》是一款校园网自动认证的APP，致力于简化繁琐的登录过程。欢迎反馈问题及提出建议~</string>
     <string name="app_user_protocol">用户协议</string>
     <string name="app_privacy_agreement">隐私政策</string>
-    <string name="app_copyright_declare">copyright© 2022 Herk All rights reserved</string>
+    <string name="app_copyright_declare">copyright© 2023 Herk All rights reserved</string>
     <string name="action_gardnet_btn">守护服务</string>
     <string name="action_autorun_btn">软件自启</string>
 

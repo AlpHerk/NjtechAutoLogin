@@ -6,10 +6,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 
-fun grayLoss() {
-
-}
-
 
 suspend fun showToast(toast: String, duration: Int = Toast.LENGTH_SHORT)
     = withContext(Dispatchers.Main) {

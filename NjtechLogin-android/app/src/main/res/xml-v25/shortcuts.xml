@@ -5,7 +5,7 @@
         android:shortcutId="autologin_shortcut"
         android:shortcutShortLabel="@string/one_key_autologin">
         <intent android:action="android.intent.action.LOGIN"
-            android:targetClass="com.herk.njtechlogin.LoginService"
-            android:targetPackage="com.herk.njtechlogin" />
+            android:targetClass="alpherk.njtechlogin.AuthenService"
+            android:targetPackage="alpherk.njtechlogin" />
     </shortcut>
 </shortcuts>
