@@ -1,4 +1,5 @@
-package alpherk.njtechlogin
+package alpherk.njtechlogin.ui
+import alpherk.njtechlogin.R
 import alpherk.njtechlogin.receiver.ScreenReceiver
 import alpherk.njtechlogin.databinding.MainNavDrawerBinding
 import alpherk.njtechlogin.service.AuthenOffService
@@ -7,6 +8,7 @@ import alpherk.njtechlogin.service.GuardService
 import alpherk.njtechlogin.ui.login.LoginActivity
 import alpherk.njtechlogin.ui.login.LoginData
 import alpherk.njtechlogin.ui.setting.SettingData
+import alpherk.njtechlogin.ui.setting.SettingFragment
 import alpherk.njtechlogin.util.*
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -15,8 +17,10 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -28,6 +32,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -60,7 +65,6 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setupWithNavController(navController)
 
 
-
         val filter = IntentFilter()
         filter.addAction(Intent.ACTION_SCREEN_ON)   // 注册解锁屏幕广播
 //        filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
@@ -70,8 +74,12 @@ class MainActivity : AppCompatActivity() {
         val screenReceiver = ScreenReceiver()
         registerReceiver(screenReceiver, filter)
 
-        checkUpdateHome()
 
+        checkUpdateBar(binding.root)
+
+        updateInfoDialog()
+
+//        Log.d("Herkin", this.getString(R.string.app_version_name))
 
     }
 
@@ -80,13 +88,14 @@ class MainActivity : AppCompatActivity() {
         unregisterReceiver(screenReceiver)
     }
 
-
-
-    @SuppressLint("SetTextI18n") // 首页侧滑栏菜单配置
+    /**
+     * 首页侧滑栏菜单配置
+     */
+    @SuppressLint("SetTextI18n")
     override fun onSupportNavigateUp(): Boolean {
         val stunName : TextView = findViewById(R.id.netName)
         val studentID: TextView = findViewById(R.id.studentID)
-        val prefs = getSharedPreferences(LOGIN_FILE,0)
+        val prefs = getSharedPreferences(USER_DATA,0)
         val username = prefs.getString(USERNAME, "")
 
         if (username == "")
@@ -104,12 +113,17 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfig) || super.onSupportNavigateUp()
     }
 
-
-    // 标题栏的 toolbar 菜单设置
+     /**
+     * 标题栏的 toolbar 菜单设置
+     */
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar, menu)
         return true
     }
+
+    /**
+     * 主页右上角菜单按钮
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.toolbar_setting -> Toast.makeText(this,"跳转失败，请从侧滑栏打开设置", Toast.LENGTH_SHORT).show()
@@ -118,43 +132,93 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-//    private fun jumptoSettingFragment(){
-//        supportFragmentManager
-//            .beginTransaction()
-//            .replace(R.id.nav_host_fragment_content_main, SettingFragment())
-//            .commit()
-//        Toast.makeText(this,"BUG：嘿，页面重叠，有空再改", Toast.LENGTH_SHORT).show()
-//    }
+
+    /**
+     * 从右上角菜单，跳转至设置
+     */
+    @Deprecated("暂时停用")
+    private fun jumptoSettingFragment(){
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.nav_host_fragment_content_main, SettingFragment())
+            .commit()
+        Toast.makeText(this,"BUG：页面重叠，有空再改", Toast.LENGTH_SHORT).show()
+    }
+
 
     private val job = Job()
     private val scope = CoroutineScope(job)
-    private fun checkUpdateHome() {
+    /**
+     * 主页底部提示条：新版本更新提示
+     */
+    private fun checkUpdateBar(bind: View) {
         scope.launch {
-            val downUrl = Update().checkUpdate()
-            if (downUrl != null) {
-                Snackbar.make(binding.root, "检测到有新版本", 30000)
+            val checkInfo = Update.checkUpdate()
+            if (checkInfo != null) {
+                Snackbar.make(bind, "检测到有新版本 v${checkInfo.vername}", 30000)
                     .setAction("下载") {
-                        val uri = Uri.parse(downUrl)
+                        val uri = Uri.parse(checkInfo.downUrl)
                         startActivity(Intent(Intent.ACTION_VIEW, uri))
-                    }
-                    .show()
+                    }.show()
+                saveSharedPrefs(LOCAL_UPGRADE_URL, checkInfo.downUrl)
+            } else {
+                saveSharedPrefs(LOCAL_UPGRADE_URL, "")
             }
         }
     }
 
-//    private fun fistTimeDialog() {
-//        AlertDialog.Builder(this).apply {
-//            setTitle("使用说明")
-//            setMessage("shuoming")
-//            setCancelable(false)
-//            setPositiveButton("确认") {
-//                dialog, which ->
-//            }
-//            setNegativeButton("退出") {
-//                dialog, which -> exitProcess(0)
-//            }
-//            show()
-//        }
-//    }
+    /**
+     * 首页对话框：首次使用本软件的说明
+     */
+    private fun firstUseDialog() {
+        val isRead = getSharedPrefs(IS_FIRST_USE, false)
+
+        if (isRead == false) {
+            AlertDialog.Builder(this).apply {
+                setTitle("使用协议")
+                setMessage("""
+                1. 本软件....
+                """.trimIndent())
+                setCancelable(false)
+                setPositiveButton("同意") { _, _ ->
+                    saveSharedPrefs(IS_FIRST_USE, true)
+                }
+                setNegativeButton("退出") { _, _ ->
+                    exitProcess(0)
+                }
+                show()
+            }
+        }
+    }
+
+    /**
+     * 对话框：阅读更新日志
+     */
+    private fun updateInfoDialog() {
+        // 读取信息：用户是否已经阅读过更新日志
+        val isRead = getSharedPrefs(IS_UPGRADE_INFO_READ, false)
+
+        if (isRead == false) {
+            AlertDialog.Builder(this).apply {
+                setTitle("更新说明")
+                setMessage("""
+                1. 右上角增加 ⌈注销认证⌋ 按钮
+                2. 桌面长按图标可极速认证
+                3. 目前仅提供 Njtech-Home 认证服务
+                """.trimIndent())
+                setCancelable(true)
+                setPositiveButton("确认") { _, _ ->
+                    // 存储信息：用户已经阅读过更新日志
+                    saveSharedPrefs(IS_UPGRADE_INFO_READ, true)
+                }
+                setNegativeButton("查看更多") { _, _ ->
+                    val uri = Uri.parse(CSDN_PRJ_URL)
+                    startActivity(Intent(Intent.ACTION_VIEW, uri))
+                }
+                show()
+            }
+        }
+    }
+
 
 }

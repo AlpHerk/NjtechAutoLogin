@@ -1,6 +1,7 @@
-package alpherk.njtechlogin
-import alpherk.njtechlogin.main.about.feedback.FeedbackActivity
-import alpherk.njtechlogin.main.setting.SettingData
+package alpherk.njtechlogin.service
+import alpherk.njtechlogin.R
+import alpherk.njtechlogin.ui.about.feedback.FeedbackActivity
+import alpherk.njtechlogin.ui.setting.SettingData
 import alpherk.njtechlogin.util.CNTTIME_defVal
 import alpherk.njtechlogin.util.MyApp.Companion.context
 import alpherk.njtechlogin.util.NetUtil
@@ -18,7 +19,9 @@ import kotlin.concurrent.thread
 const val CHANNEL_ID = "channel guard"
 const val CHANNEL_NAME = "网络守护服务"
 
-
+/**
+ * 网络守护服务
+ */
 class GuardService : Service() {
     private val job = Job()
     private val scope = CoroutineScope(job)

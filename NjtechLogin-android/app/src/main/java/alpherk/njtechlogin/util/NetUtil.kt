@@ -19,6 +19,9 @@ object NetUtil {
 
     private lateinit var wifiManager: WifiManager
 
+    /**
+     * 自定义网络 client
+     */
     val client: OkHttpClient = OkHttpClient.Builder()
         .connectTimeout(5, TimeUnit.SECONDS)
         .writeTimeout(5, TimeUnit.SECONDS)
@@ -27,6 +30,9 @@ object NetUtil {
         .followSslRedirects(true)
         .build()
 
+    /**
+     * 开启 WiFi or 弹出 WiFi 连接面板
+     */
     fun setWiFiEnabled(): Boolean {
         wifiManager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         return if (!wifiManager.isWifiEnabled) {
@@ -57,7 +63,7 @@ object NetUtil {
         }
     }
 
-
+    @Deprecated("暂时停用")
     @RequiresApi(Build.VERSION_CODES.Q)
     fun connectWiFi() {
         // TODO
@@ -72,7 +78,7 @@ object NetUtil {
         if (status != WifiManager.STATUS_NETWORK_SUGGESTIONS_SUCCESS) {
             // do error handling here
         }
-        // Optional (Wait for post connection broadcast to one of your suggestions)
+        // Optional (Wait for post connection receiver to one of your suggestions)
         val intentFilter = IntentFilter(WifiManager.ACTION_WIFI_NETWORK_SUGGESTION_POST_CONNECTION)
 
         val broadcastReceiver = object : BroadcastReceiver() {

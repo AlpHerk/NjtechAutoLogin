@@ -19,7 +19,15 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+<!--    作用：通过透明activity启动service而不显示界面-->
+    <style name="Theme.NJtechAutologin.NoActionBar.Translucent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
     <style name="Theme.NJtechAutologin.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.NJtechAutologin.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

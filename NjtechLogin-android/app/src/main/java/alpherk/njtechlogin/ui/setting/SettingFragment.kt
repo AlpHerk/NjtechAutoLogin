@@ -1,10 +1,10 @@
-package alpherk.njtechlogin.main.setting
-import alpherk.njtechlogin.GuardService
+package alpherk.njtechlogin.ui.setting
+import alpherk.njtechlogin.service.GuardService
 import alpherk.njtechlogin.databinding.FragmentSettingBinding
 import alpherk.njtechlogin.util.AUTORUN
 import alpherk.njtechlogin.util.GARDNET
 import alpherk.njtechlogin.util.MyApp
-import alpherk.njtechlogin.util.SETING_FIL
+import alpherk.njtechlogin.util.USER_DATA
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -47,7 +47,7 @@ class SettingFragment : Fragment() {
     }
 
     private fun saveLoginData() {
-        MyApp.context.getSharedPreferences(SETING_FIL,0).edit() {
+        MyApp.context.getSharedPreferences(USER_DATA,0).edit() {
             putBoolean(GARDNET, binding.gardNetSwt.isChecked)
             putBoolean(AUTORUN, binding.autoRunSwt.isChecked)
         }

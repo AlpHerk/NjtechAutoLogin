@@ -60,7 +60,7 @@
 <br>
 
 - NjtechLogin-android: 基于 Kotlin 开发的 App 应用 
-  > 适用于鸿蒙系统(HarmonyOS) 1.0-3.0，安卓系统 8-12  
+  > 适用于鸿蒙系统(HarmonyOS) 1.0以上，安卓系统 8以上  
   > 适配横屏模式，强烈推荐平板使用 ！！
 
 - NjtechLogin-ios&linux: 基于 Python 开发，pythonista3 运行
@@ -224,7 +224,10 @@ Android 端，认证失败？
 Android 端，闪退？
 </summary>
 
-- 支持安卓8~12版本，过低过高版本可能闪退
+- 支持安卓8以上版本，过低过高版本可能闪退
 - 安卓9具有自动连接wifi等特性，9以上不具有
 </details>
 
+## 项目 API 处理
+- 软件对 GitHub release 页的链接进行检查更新
+- 检查更新时提取 release downurl 内的数字作为版本码

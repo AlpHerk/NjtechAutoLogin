@@ -1,5 +1,5 @@
-package alpherk.njtechlogin
-import alpherk.njtechlogin.login.LoginData
+package alpherk.njtechlogin.service
+import alpherk.njtechlogin.ui.login.LoginData
 import alpherk.njtechlogin.util.AutoLogin
 import alpherk.njtechlogin.util.NetUtil
 import alpherk.njtechlogin.util.showToast
@@ -8,6 +8,9 @@ import android.content.Intent
 import android.os.IBinder
 import kotlinx.coroutines.*
 
+/**
+ * 认证服务
+ */
 class AuthenService : Service() {
     private val job = Job()
     private val scope = CoroutineScope(job)

@@ -1,6 +1,6 @@
-package alpherk.njtechlogin.broadcast
+package alpherk.njtechlogin.receiver
 
-import alpherk.njtechlogin.AuthenService
+import alpherk.njtechlogin.service.AuthenService
 import alpherk.njtechlogin.util.NetUtil
 import alpherk.njtechlogin.util.showToast
 import android.content.BroadcastReceiver
@@ -11,7 +11,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlin.concurrent.thread
 
 class ScreenReceiver: BroadcastReceiver() {
     private val job = Job()

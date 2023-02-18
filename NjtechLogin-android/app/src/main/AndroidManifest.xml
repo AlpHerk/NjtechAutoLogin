@@ -17,13 +17,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NJtechAutologin"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.NoneActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:process=":RunSoLibV2RayDaemon"
+            android:theme="@style/Theme.NJtechAutologin.NoActionBar.Translucent" />
+
         <service
-            android:name=".AuthenOffService"
+            android:name=".service.AuthenOffService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="fullSensor"
@@ -37,33 +44,34 @@
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
+
         </activity>
+
         <activity
-            android:name=".login.LoginActivity"
+            android:name="alpherk.njtechlogin.ui.login.LoginActivity"
             android:exported="true"
             android:label="@string/activity_login_title"
             android:launchMode="singleTask"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".ui.MainActivity"
             android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".main.about.help.HelpActivity"
+            android:name="alpherk.njtechlogin.ui.about.help.HelpActivity"
             android:exported="true"
             android:label="@string/app_help"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ui.MainActivity" />
         <activity
-            android:name=".main.about.feedback.FeedbackActivity"
+            android:name="alpherk.njtechlogin.ui.about.feedback.FeedbackActivity"
             android:exported="true"
             android:label="@string/app_feedback"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ui.MainActivity" />
 
         <service
-            android:name=".AuthenService"
+            android:name=".service.AuthenService"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
@@ -73,7 +81,7 @@
             </intent-filter>
         </service>
         <service
-            android:name=".GuardService"
+            android:name=".service.GuardService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="mediaProjection" />

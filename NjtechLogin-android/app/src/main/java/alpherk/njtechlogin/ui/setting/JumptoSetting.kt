@@ -1,4 +1,4 @@
-package alpherk.njtechlogin.main.setting
+package alpherk.njtechlogin.ui.setting
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent

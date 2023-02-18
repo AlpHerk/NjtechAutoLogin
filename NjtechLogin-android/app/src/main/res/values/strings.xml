@@ -2,7 +2,8 @@
     <string name="app_name">南工认证</string>
     <string name="app_author">开发 @ 无白Herk</string>
     <string name="app_version_code">务必到 build.gradle.app 中更新版本号</string>
-    <string name="app_version_name">1.3.0</string>
+    <string name="app_version_name_prefix">版本：v </string>
+    <string name="app_version_name">1.3.2.stable</string>
 
     <string name="navigation_drawer_open">打开侧滑导航栏</string>
     <string name="navigation_drawer_close">关闭侧滑导航栏</string>
@@ -26,17 +27,17 @@
     <string name="feedback_jump_tips">点击图标自动跳转</string>
     <string name="radio_cmcc">中国移动</string>
     <string name="radio_telecom">中国电信</string>
-    <string name="app_version_name_prefix">版本：V </string>
     <string name="app_slogan">畅享纯粹的网络</string>
     <string name="one_key_autologin">一键认证</string>
+    <string name="shortcut_autologin">极速认证</string>
     <string name="app_slogan1">点击按钮，畅享网络</string>
     <string name="app_update_btn">版本更新</string>
     <string name="app_feedback">联系反馈</string>
     <string name="app_help">帮助说明</string>
-    <string name="app_description">《工大认证》是一款校园网自动认证的APP，致力于简化繁琐的登录过程。欢迎反馈问题及提出建议~</string>
+    <string name="app_description">《工大认证》是一款校园网自动认证 APP，致力于提升校园网使用体验。欢迎反馈问题~</string>
     <string name="app_user_protocol">用户协议</string>
     <string name="app_privacy_agreement">隐私政策</string>
-    <string name="app_copyright_declare">copyright© 2023 Herk All rights reserved</string>
+    <string name="app_copyright_declare">copyright© 2023 Herk all rights reserved</string>
     <string name="action_gardnet_btn">守护服务</string>
     <string name="action_autorun_btn">软件自启</string>
 

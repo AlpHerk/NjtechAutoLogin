@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_account"
-        android:name="alpherk.njtechlogin.main.home.HomeFragment"
+        android:name="alpherk.njtechlogin.ui.home.HomeFragment"
         android:label="@string/menu_account"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_setting"
-        android:name="alpherk.njtechlogin.main.setting.SettingFragment"
+        android:name="alpherk.njtechlogin.ui.setting.SettingFragment"
         android:label="@string/menu_setting"
         tools:layout="@layout/fragment_setting" />
 
     <fragment
         android:id="@+id/nav_info"
-        android:name="alpherk.njtechlogin.main.about.InfoFragment"
+        android:name="alpherk.njtechlogin.ui.about.InfoFragment"
         android:label="@string/menu_about"
         tools:layout="@layout/fragment_info" />
 

@@ -4,7 +4,7 @@
     <data>
         <variable
             name="LoginData"
-            type="alpherk.njtechlogin.login.LoginData" />
+            type="alpherk.njtechlogin.ui.login.LoginData" />
     </data>
 
     <LinearLayout

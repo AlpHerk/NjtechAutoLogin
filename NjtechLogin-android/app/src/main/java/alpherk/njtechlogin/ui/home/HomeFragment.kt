@@ -1,5 +1,5 @@
-package alpherk.njtechlogin.main.home
-import alpherk.njtechlogin.AuthenService
+package alpherk.njtechlogin.ui.home
+import alpherk.njtechlogin.service.AuthenService
 import alpherk.njtechlogin.databinding.FragmentHomeBinding
 import android.content.Intent
 import android.os.Bundle

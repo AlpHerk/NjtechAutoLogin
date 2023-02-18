@@ -52,7 +52,21 @@ void Update::checkUpdate(int hide)
                 QString downUrl = obj.value("browser_download_url").toString();
 
                 if (downUrl.contains("win")) {
-                    int newVerCode = downUrl.right(9).left(6).replace(".", "").toInt();
+//                    获取本版代码的旧方法
+//                    int newVerCode = downUrl.right(9).left(6).replace(".", "").toInt();
+
+                    QRegularExpression static vername("-v(?<ver>.*?).zip");
+                    QString newVer = vername.match(downUrl).captured("ver");
+                    QString tmp;
+
+                    for (int i = 0; i < newVer.length(); i++) {
+                        if (newVer[i]>'0' && newVer[i]<'9') {
+                            tmp.append(newVer[i]);
+                        }
+                    }
+                    int newVerCode = tmp.toInt();
+
+                    qDebug() << "Herkin" << "更新链接：" << newVerCode;
 
                     if (VER_CODE < newVerCode) {
                         QString name = "最新版本：" + appName;
@@ -72,7 +86,7 @@ void Update::checkUpdate(int hide)
         }
     }
     else {
-        if (!hide) QMessageBox::information(this, "检查更新", "检查配置解析失败, 请联系开发者\n");
+        if (!hide) QMessageBox::information(this, "检查更新", "更新配置解析失败, 请重试   \n");
     }
 }
 
@@ -89,7 +103,7 @@ void Update::updateLog()
         QMessageBox::information(this, "更新日志", updatelog + "\n");
     }
     else {
-        QMessageBox::information(this, "更新日志", "解析失败, 请联系开发者\n");
+        QMessageBox::information(this, "更新日志", "日志解析失败, 请重试    \n");
     }
 }
 

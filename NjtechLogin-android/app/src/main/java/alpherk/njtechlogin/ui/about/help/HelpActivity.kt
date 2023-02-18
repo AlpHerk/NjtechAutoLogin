@@ -1,5 +1,7 @@
-package alpherk.njtechlogin.main.about.help
+package alpherk.njtechlogin.ui.about.help
 import alpherk.njtechlogin.databinding.ActivityHelpBinding
+import alpherk.njtechlogin.util.CSDN_PRJ_URL
+import alpherk.njtechlogin.util.OFFICE_WEB
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,11 +16,11 @@ class HelpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.csdnHelpBtn.setOnClickListener {
-            val uri = Uri.parse("https://blog.csdn.net/Alpherkin/article/details/120580798")
+            val uri = Uri.parse(CSDN_PRJ_URL)
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
         binding.downWinVersion.setOnClickListener {
-            val uri = Uri.parse("https://alpherk.github.io/NjtechAutoLogin/release/NjtechLogin.apk")
+            val uri = Uri.parse(OFFICE_WEB)
             startActivity(Intent(Intent.ACTION_VIEW, uri))
         }
     }
