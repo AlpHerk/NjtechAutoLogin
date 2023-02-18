@@ -9,6 +9,8 @@
 #include <QNetworkReply>
 #include <QTimer>
 #include <QEventLoop>
+#include <QSettings>
+#include <QApplication>
 
 class Utils : public QObject
 {
@@ -16,6 +18,7 @@ class Utils : public QObject
 public:
     explicit Utils(QObject *parent = nullptr);
 
+    static bool powerBootCheck();
     static QString getIpv4Adds();
     static QString getSysProxy();
     bool isNetPing();

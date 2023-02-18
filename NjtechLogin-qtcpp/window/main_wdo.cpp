@@ -3,6 +3,7 @@
 #include <QDesktopServices>
 
 #include "constants.h"
+#include "service/utils.h"
 #include "window/main_wdo.h"
 #include "service/authen.h"
 #include "custoui/mainwidget.cpp"
@@ -79,6 +80,7 @@ void MainWdo::initMainWdo()
 
     ui->stackedWidget->setCurrentWidget(ui->home_page);
     ui->version_code->setText(VER_NAME);
+    Utils::powerBootCheck();
 }
 
 

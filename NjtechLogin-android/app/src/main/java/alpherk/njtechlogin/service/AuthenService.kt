@@ -28,7 +28,7 @@ class AuthenService : Service() {
                     stopSelf()
                 }
             }
-            showToast("正在网络认证中···")
+//            showToast("正在网络认证中···")
             val userData = LoginData().postUserData()
             val deferred1 = async(Dispatchers.IO) {
                 AutoLogin.askLogin(userData)

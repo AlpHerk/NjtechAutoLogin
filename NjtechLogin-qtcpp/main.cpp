@@ -5,39 +5,58 @@
 
 #include "constants.h"
 #include "window/main_wdo.h"
-
+#include "qtsingleapplication.h"
 
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QtSingleApplication app(argc, argv);
+    QStringList args = QCoreApplication::arguments();
 
+    MainWdo  mainWdo ;
+
+    if (app.isRunning()) {
+        app.sendMessage("raise_window_noop");
+        return EXIT_SUCCESS;
+    }
+
+    if (args.contains(ARG_HIDE)) {
+        mainWdo.hide();
+        mainWdo.authen->start();
+        mainWdo.update->checkUpdate(1);
+    } else {
+        mainWdo.show();
+        mainWdo.authen->start();
+    }
 
     /// 利用信号量设计单例模式
-    QSystemSemaphore semaphore("ProgramKey", 1, QSystemSemaphore::Open);
-    semaphore.acquire();
-    QSharedMemory memory("Program");    //全局对象名
-    if (!memory.create(1)) //如果全局对象存在则提示退出
-    {
-        QMessageBox::information(0, "提示", "程序已经在运行了");
-        semaphore.release();
-        return app.exec();
-    }
-    semaphore.release();
+//    QSystemSemaphore semaphore("ProgramKey", 1, QSystemSemaphore::Open);
+//    semaphore.acquire();
+//    QSharedMemory memory("Program");    //全局对象名
+
+//    if (!memory.create(1)) //如果全局对象存在则提示退出
+//    {
+//        QMessageBox::information(0, "提示", "程序已经在运行了");
+//        semaphore.release();
+//        return app.exec();
+//    }
+//    semaphore.release();
 
 
     /// 启动程序
-    MainWdo *mainWdo = new MainWdo();
-    QStringList args = QCoreApplication::arguments();
+//    MainWdo *mainWdo = new MainWdo();
+//    QStringList args = QCoreApplication::arguments();
 
-    if (args.contains(ARG_HIDE)) {
-        mainWdo->hide();
-        mainWdo->authen->start();
-        mainWdo->update->checkUpdate(1);
-    } else {
-        mainWdo->show();
-        mainWdo->authen->start();
-    }
+//    if (args.contains(ARG_HIDE)) {
+//        mainWdo->hide();
+//        mainWdo->authen->start();
+//        mainWdo->update->checkUpdate(1);
+//    } else {
+//        mainWdo->show();
+//        mainWdo->authen->start();
+//    }
+
+
 
     return app.exec();
 }

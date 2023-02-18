@@ -9,6 +9,10 @@ TARGET = NjtechAuthen
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+# 载入 qtsingleapplication，实现软件单例模式
+include("libraries\qt-solutions\qtsingleapplication\qtsingleapplication.pri")
+
+
 SOURCES += \
     custoui/loginwidget.cpp \
     custoui/rightbox.cpp    \

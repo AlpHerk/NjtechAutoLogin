@@ -83,7 +83,7 @@ void LoginWidget::powerBoot(bool checked)
     else settings.remove(SOFTNAME);                                 // 删除注册表
 
     QSettings settis(AUTHOR, SOFTNAME);
-    settings.setValue(SETTING_KEY2, ui->ckboxPowerBoot->isChecked());
+    settings.setValue(SETTING_KEY2, checked);
 }
 
 

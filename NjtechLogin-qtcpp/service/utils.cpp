@@ -1,10 +1,30 @@
 #include "utils.h"
-#include "constants.h""
+#include "constants.h"
 
 Utils::Utils(QObject *parent)
     : QObject{parent}
 {
 
+}
+
+bool Utils::powerBootCheck()
+{
+    QSettings settings(AUTHOR, SOFTNAME);
+    bool      checked = settings.value(SETTING_KEY2, true).toBool();
+    QSettings runpath = QSettings(RUNPATH, QSettings::NativeFormat);
+
+    if (checked) {
+        QString softPath = QApplication::applicationFilePath();     // 应用的路径
+        QString runCommand = softPath + " " + ARG_HIDE;            // 开机自启命令
+        runpath.setValue(SOFTNAME, runCommand.replace("/", "\\"));  // 写入注册表
+        qDebug() << "Herkin" << "写入注册表";
+        return true;
+
+    } else {
+        runpath.remove(SOFTNAME);                                   // 删除注册表
+        qDebug() << "Herkin" << "删除注册表";
+        return false;
+    }
 }
 
 QString Utils::getIpv4Adds()
