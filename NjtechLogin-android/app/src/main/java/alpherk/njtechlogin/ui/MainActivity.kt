@@ -1,9 +1,12 @@
 package alpherk.njtechlogin
-import alpherk.njtechlogin.broadcast.ScreenReceiver
+import alpherk.njtechlogin.receiver.ScreenReceiver
 import alpherk.njtechlogin.databinding.MainNavDrawerBinding
-import alpherk.njtechlogin.login.LoginActivity
-import alpherk.njtechlogin.login.LoginData
-import alpherk.njtechlogin.main.setting.SettingData
+import alpherk.njtechlogin.service.AuthenOffService
+import alpherk.njtechlogin.service.AuthenService
+import alpherk.njtechlogin.service.GuardService
+import alpherk.njtechlogin.ui.login.LoginActivity
+import alpherk.njtechlogin.ui.login.LoginData
+import alpherk.njtechlogin.ui.setting.SettingData
 import alpherk.njtechlogin.util.*
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -14,7 +17,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
