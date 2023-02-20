@@ -24,26 +24,26 @@ class AuthenService : Service() {
         scope.launch {
             launch(Dispatchers.IO) {
                 if (!NetUtil.setWiFiEnabled()) {
-                    showToast("安卓9以上，请手动打开 WiFi")
+                    //showToast("安卓9以上，请打开 WiFi")
                     stopSelf()
                 }
             }
-//            showToast("正在网络认证中···")
+            // showToast("正在网络认证中···")
             val userData = LoginData().postUserData()
             val deferred1 = async(Dispatchers.IO) {
                 AutoLogin.askLogin(userData)
             }
-//            val deferred2 = async(Dispatchers.IO) {
-//                delay(1)
-//                AutoLogin.askLogin(userData)
-//            }
-//            if (deferred1.await().first || deferred2.await().first) {
-//                showToast(deferred1.await().second)
-//                stopSelf()
-//            } else if (!(deferred1.await().first && deferred2.await().first)) {
-//                showToast(deferred2.await().second) // 输出错误信息
-//                stopSelf()
-//            }
+            // val deferred2 = async(Dispatchers.IO) {
+            //     delay(1)
+            //     AutoLogin.askLogin(userData)
+            // }
+            // if (deferred1.await().first || deferred2.await().first) {
+            //     showToast(deferred1.await().second)
+            //     stopSelf()
+            // } else if (!(deferred1.await().first && deferred2.await().first)) {
+            //     showToast(deferred2.await().second) // 输出错误信息
+            //     stopSelf()
+            // }
             showToast(deferred1.await().second)
         }
         return super.onStartCommand(intent, flags, startId)

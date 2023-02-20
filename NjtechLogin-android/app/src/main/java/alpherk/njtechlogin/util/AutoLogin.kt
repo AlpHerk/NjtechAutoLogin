@@ -6,75 +6,8 @@ import java.net.Inet4Address
 import java.net.NetworkInterface
 
 object AutoLogin {
-    private const val url_a70htm = "http://10.50.255.11"
 
-    /**
-     * 从本地获取 IPv4 地址
-     */
-    private fun getIp4fromLocal(): String? {
-        try {
-            val inter = NetworkInterface.getNetworkInterfaces()
-            while (inter.hasMoreElements()) {
-                val enumIpAdd = inter.nextElement().inetAddresses
-                while (enumIpAdd.hasMoreElements()) {
-                    val inetAddress = enumIpAdd.nextElement()
-                    if (!inetAddress.isLoopbackAddress && inetAddress is Inet4Address) {
-                        Log.d("HERKS", "本机 ip 为：${inetAddress.getHostAddress()}")
-                        return inetAddress.getHostAddress()?.toString()
-                    }
-                }
-            }
-        } catch (ex: Exception) {
-        }
-        return null
-    }
 
-    /**
-     * 从网页获取 IPv4 地址
-     */
-    @Deprecated("停用")
-    private fun getIpFormNet(): String? {
-        val request1 = Request.Builder().url(url_a70htm)
-        .addHeader("Connection", "keep-alive")
-        .addHeader("Content-Type", "text/html; charset=gbk")
-        .addHeader("Upgrade-Insecure-Requests", "1")
-        .addHeader("User-Agent", "Mozilla/5.0 (Linux; U; Android 11; zh-cn; Redmi K20 Pro Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.116 Mobile Safari/537.36")
-        .addHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
-        .addHeader("Accept-Encoding", "gzip, deflate")
-        .addHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7")
-        .addHeader("Host", "10.50.255.11")
-        .build()
-
-        val response = NetUtil.client.newCall(request1).execute()
-        val respBody = response.body?.string()
-        val ip = respBody?.let {
-            Regex("v46ip=\'(.*?)\'").find(it)!!.groupValues[1]
-        }
-        Log.d("HERKS", "网页获取 ip 为：$ip")
-        return ip
-    }
-
-    /**
-     * 发送校园网注销认证请求
-     */
-    @Deprecated("已移入 `LogoutNet.logoutNet()`")
-    fun logoutNet() {
-        val ipLocal = getIp4fromLocal()
-        val urlLogout= "http://10.50.255.11:801/eportal/?c=ACSetting&a=Logout&wlanuserip=$ipLocal&wlanacip=10.50.255.1&wlanacname=me60&port=&hostname=10.50.255.11&iTermType=2&session=&queryACIP=0&mac=00-00-00-00-00-00&jsVersion=2.4.3"
-        val requestBody = FormBody.Builder().build()
-        val request = Request.Builder().url(urlLogout)
-            .addHeader("Cache-Control", "max-age=0")
-            .addHeader("Upgrade-Insecure-Requests", "1")
-            .addHeader("Content-Type", "application/x-www-form-urlencoded")
-            .addHeader("User-Agent", "Mozilla/5.0 (Linux; U; Android 11; zh-cn; Redmi K20 Pro Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.116 Mobile Safari/537.36")
-            .addHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
-            .addHeader("Referer", "http://10.50.255.11/")
-            .addHeader("Accept-Encoding", "gzip, deflate")
-            .addHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7")
-            .post(requestBody).build()
-
-        NetUtil.client.newCall(request).execute()
-    }
 
     /**
      * 发送校园网认证请求
@@ -82,7 +15,8 @@ object AutoLogin {
     private fun loginNet(UserData: List<String>): String? {
         val (username, password, netCompany) = UserData
 
-        val ipLocal = getIp4fromLocal()
+        val ipLocal = NetUtil.getIpFormNet()
+
         val urlLogin = "http://10.50.255.11:801/eportal/?c=ACSetting&a=Login&protocol=http:&hostname=10.50.255.11&iTermType=2&wlanuserip=$ipLocal&wlanacip=null&wlanacname=null&mac=00-00-00-00-00-00&ip=$ipLocal&enAdvert=0&queryACIP=0&jsVersion=2.4.3&loginMethod=1"
         var channel = ""
         if (netCompany == "1") {
@@ -125,14 +59,11 @@ object AutoLogin {
 
     fun askLogin(UserData: List<String>): Pair<Boolean, String> {
         val res = loginNet(UserData)
-        Log.d("Herkin", "$res")
 
         if (res != null) {
-            return if (res.contains("ErrorMsg=bGRhcCBhdXRoIGVycm9y")) {
-                Pair(false, "🔴 账号或密码错误（ldap校验）")
-            }
-            else if (res.contains("ErrorMsg=dXNlcmlkIGVycm9yMQ"  )) {
-                Pair(false, "🔴 请选择正确的运营商，移动/电信！")
+            return if (!res.contains("ACLogOut")) {
+                Log.d("Herkin", "认证结果: $res")
+                Pair(true,  "✅ 认证成功，开始冲浪 ~")
             }
             else if (res.contains("ACLogOut=1")) {
                 Pair(true,  "🟧 认证已注销，网络断开")
@@ -140,14 +71,24 @@ object AutoLogin {
             else if (res.contains("ACLogOut=2")) {
                 Pair(true,  "🟧 注销失败，请勿反复注销")
             }
-            else if (res.contains("RetCode=2" )) {
+            else if (res.contains("ACLogOut=5&RetCode=1&ErrorMsg=bGRhcCBhdXRoIGVycm9y")) {
+                Pair(false, "🔴 账号或密码错误（ldap校验）")
+            }
+            else if (res.contains("ACLogOut=5&RetCode=1&ErrorMsg=dXNlcmlkIGVycm9yMQ"  )) {
+                Pair(false, "🔴 请选择正确的运营商，移动/电信！")
+            }
+            else if (res.contains("ACLogOut=5&RetCode=1")) {
+                Pair(true,  "🔴️ AC认证失败")
+            }
+            else if (res.contains("ACLogOut=5&RetCode=2")) {
                 Pair(true,  "ℹ️ 终端 IP 已经在线")
             }
             else {
-                Pair(true,  "✅ 认证成功，开始冲浪 ~")
+                Log.d("Herkin", "认证结果: 未知 $res")
+                Pair(false,  "🔴 认证失败，未知重定向链接")
             }
         } else {
-            return Pair(false, "🔴 认证请用 WiFi 而非移动数据")
+            return Pair(false, "ℹ️ 请用 WiFi 数据认证")
         }
     }
 
@@ -169,7 +110,7 @@ object LogoutNet {
                 while (enumIpAdd.hasMoreElements()) {
                     val inetAddress = enumIpAdd.nextElement()
                     if (!inetAddress.isLoopbackAddress && inetAddress is Inet4Address) {
-                        Log.d("HERKS", "本机 ip 为：${inetAddress.getHostAddress()}")
+                        Log.d("HERKIN", "本机 ip 为：${inetAddress.getHostAddress()}")
                         return inetAddress.getHostAddress()?.toString()
                     }
                 }
@@ -199,36 +140,39 @@ object LogoutNet {
                 .post(requestBody).build()
             NetUtil.client.newCall(request).execute()
         } catch (ex: Exception) {
-            Log.d("Herkin", "注销失败：无法接入学校内网")
+            Log.d("HERKIN", "注销失败：无法接入学校内网")
         }
 
     }
+
 }
 
 
 
 
-// 认证后的重定向链接
 @Deprecated("认证返回的重定向连接")
 const val temp = """
-您已经成功登录。 3.htm
+您已经成功登录。 
 You have successfully logged into our system.
 http://10.50.255.11:80/3.htm?wlanuserip=10.40.177.167&wlanacname=me60&wlanacip=10.50.255.1&mac=00-00-00-00-00-00&session=&redirect=
 
-注销失败  ACLogOut=2
+注销失败  
 Logout failed
 http://10.50.255.11/2.htm?wlanuserip=10.40.177.167&wlanacname=me60&wlanacip=10.50.255.1&mac=00-00-00-00-00-00&session=&redirect=&ACLogOut=2
 
 请检查您绑定的运营商账号是否正确
 Account does not exist
 http://10.50.255.11:80/2.htm?wlanuserip=10.40.177.167&wlanacname=me60&wlanacip=10.50.255.1&mac=00-00-00-00-00-00&session=&redirect=&ACLogOut=5&RetCode=1&ErrorMsg=dXNlcmlkIGVycm9yMQ%3D%3D
- 
+
 账号或密码错误（ldap校验）
 http://10.50.255.11:80/2.htm?wlanuserip=10.40.177.167&wlanacname=me60&wlanacip=10.50.255.1&mac=00-00-00-00-00-00&session=&redirect=&ACLogOut=5&RetCode=1&ErrorMsg=bGRhcCBhdXRoIGVycm9y
 
-终端IP已经在线  RetCode=2
+终端IP已经在线 
 IP already online
 http://10.50.255.11:80/2.htm?wlanuserip=10.40.177.167&wlanacname=me60&wlanacip=10.50.255.1&mac=00-00-00-00-00-00&session=&redirect=&ACLogOut=5&RetCode=2&ErrorMsg=
+
+AC认证失败
+http://10.50.255.11/2.htm?wlanuserip=192.168.94.2&wlanacname=me60&wlanacip=10.50.255.1&mac=00-00-00-00-00-00&session=&redirect=&ACLogOut=3&RetCode=1&ErrorMsg=
 """
 
 @Deprecated("旧的智慧南工认证类")

@@ -41,4 +41,5 @@ const val CHECKUP_URL  = "https://api.github.com/repos/AlpHerk/NjtechAutoLogin/r
 /**
  * 参考文献链接
  */
+const val CSDN_PRJ = "https://blog.csdn.net/Alpherkin/article/details/115599094"
 

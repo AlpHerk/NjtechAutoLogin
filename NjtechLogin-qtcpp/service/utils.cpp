@@ -17,12 +17,12 @@ bool Utils::powerBootCheck()
         QString softPath = QApplication::applicationFilePath();     // 应用的路径
         QString runCommand = softPath + " " + ARG_HIDE;            // 开机自启命令
         runpath.setValue(SOFTNAME, runCommand.replace("/", "\\"));  // 写入注册表
-        qDebug() << "Herkin" << "写入注册表";
+        //qDebug() << "Herkin" << "写入开机注册表";
         return true;
 
     } else {
         runpath.remove(SOFTNAME);                                   // 删除注册表
-        qDebug() << "Herkin" << "删除注册表";
+        qDebug() << "Herkin" << "删除开机注册表";
         return false;
     }
 }

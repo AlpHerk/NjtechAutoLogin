@@ -16,12 +16,5 @@ class NoneActivity : AppCompatActivity() {
         startForegroundService(Intent(applicationContext, AuthenService::class.java))
         finish()
     }
-//    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-//        android.R.id.home -> {
-//            onBackPressed()
-//            true
-//        }
-//        else -> super.onOptionsItemSelected(item)
-//    }
 
 }

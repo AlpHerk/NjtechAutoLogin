@@ -1,7 +1,7 @@
 package alpherk.njtechlogin.util
-
 import android.app.Activity
 
+@Deprecated("")
 object ActivityCollector {
     private val activities = ArrayList<Activity>()
 

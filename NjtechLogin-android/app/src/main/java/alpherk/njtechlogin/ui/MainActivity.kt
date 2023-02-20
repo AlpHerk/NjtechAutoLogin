@@ -11,10 +11,12 @@ import alpherk.njtechlogin.ui.setting.SettingData
 import alpherk.njtechlogin.ui.setting.SettingFragment
 import alpherk.njtechlogin.util.*
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -48,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         val (username, password) = LoginData().postUserData()
         if (username == "" || password == "") {
-//            fistTimeDialog()
+            // fistTimeDialog()
             startActivity(Intent(this, LoginActivity::class.java))
         } else {
             startService(Intent(this, AuthenService::class.java))
@@ -67,19 +69,19 @@ class MainActivity : AppCompatActivity() {
 
         val filter = IntentFilter()
         filter.addAction(Intent.ACTION_SCREEN_ON)   // 注册解锁屏幕广播
-//        filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
-//        filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
-//        val netReceiver = NetReceiver()
-//        registerReceiver(netReceiver, filter)
+        // filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+        // filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
+        // val netReceiver = NetReceiver()
+        // registerReceiver(netReceiver, filter)
         val screenReceiver = ScreenReceiver()
         registerReceiver(screenReceiver, filter)
 
 
         checkUpdateBar(binding.root)
 
-        updateInfoDialog()
+        updateInfoDialogNew(this)
 
-//        Log.d("Herkin", this.getString(R.string.app_version_name))
+        // Log.d("Herkin", this.getString(R.string.app_version_name))
 
     }
 
@@ -194,24 +196,23 @@ class MainActivity : AppCompatActivity() {
     /**
      * 对话框：阅读更新日志
      */
-    private fun updateInfoDialog() {
+    private fun updateInfoDialogNew(context: Context) {
         // 读取信息：用户是否已经阅读过更新日志
         val isRead = getSharedPrefs(IS_UPGRADE_INFO_READ, false)
-
+        Log.d("Herkin", "is read $isRead")
         if (isRead == false) {
             AlertDialog.Builder(this).apply {
                 setTitle("更新说明")
-                setMessage("""
-                1. 右上角增加 ⌈注销认证⌋ 按钮
-                2. 桌面长按图标可极速认证
-                3. 目前仅提供 Njtech-Home 认证服务
-                """.trimIndent())
+                setMessage(
+                    "\n当前版本：${context.getString(R.string.app_version_name)}\n"
+                            + context.getString(R.string.app_update_info).trimIndent()
+                )
                 setCancelable(true)
                 setPositiveButton("确认") { _, _ ->
                     // 存储信息：用户已经阅读过更新日志
                     saveSharedPrefs(IS_UPGRADE_INFO_READ, true)
                 }
-                setNegativeButton("查看更多") { _, _ ->
+                setNegativeButton("更多") { _, _ ->
                     val uri = Uri.parse(CSDN_PRJ_URL)
                     startActivity(Intent(Intent.ACTION_VIEW, uri))
                 }
@@ -219,6 +220,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
+
 
 
 }

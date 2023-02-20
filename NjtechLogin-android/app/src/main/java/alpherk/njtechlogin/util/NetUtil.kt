@@ -12,6 +12,8 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import java.net.Inet4Address
+import java.net.NetworkInterface
 import java.util.concurrent.TimeUnit
 
 
@@ -29,6 +31,58 @@ object NetUtil {
         .followRedirects(true)
         .followSslRedirects(true)
         .build()
+
+
+
+
+    /**
+     * 从本地获取 IPv4 地址
+     */
+    @Deprecated("停用")
+    fun getIp4fromLocal(): String? {
+        try {
+            val inter = NetworkInterface.getNetworkInterfaces()
+            while (inter.hasMoreElements()) {
+                val enumIpAdd = inter.nextElement().inetAddresses
+                while (enumIpAdd.hasMoreElements()) {
+                    val inetAddress = enumIpAdd.nextElement()
+                    if (!inetAddress.isLoopbackAddress && inetAddress is Inet4Address) {
+                        Log.d("Herkin", "本机 ip 为：${inetAddress.getHostAddress()}")
+                        return inetAddress.getHostAddress()?.toString()
+                    }
+                }
+            }
+        } catch (ex: Exception) {
+        }
+        return null
+    }
+
+    /**
+     * 从网页获取 IPv4 地址
+     */
+    fun getIpFormNet(): String? {
+
+        val request1 = Request.Builder().url("http://10.50.255.11")
+            .addHeader("Connection", "keep-alive")
+            .addHeader("Content-Type", "text/html; charset=gbk")
+            .addHeader("Upgrade-Insecure-Requests", "1")
+            .addHeader("User-Agent", "Mozilla/5.0 (Linux; U; Android 11; zh-cn; Redmi K20 Pro Build/RKQ1.200826.002) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/89.0.4389.116 Mobile Safari/537.36")
+            .addHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9")
+            .addHeader("Accept-Encoding", "gzip, deflate")
+            .addHeader("Accept-Language", "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7")
+            .addHeader("Host", "10.50.255.11")
+            .build()
+
+        val response = client.newCall(request1).execute()
+        val respBody = response.body?.string()
+        val ip = respBody?.let {
+            Regex("v46ip=\'(.*?)\'").find(it)!!.groupValues[1]
+        }
+        Log.d("HERKIN", "网页获取 ip 为：$ip")
+        return ip
+    }
+
+
 
     /**
      * 开启 WiFi or 弹出 WiFi 连接面板
@@ -58,7 +112,7 @@ object NetUtil {
             client.newCall(Request.Builder().url("https://www.baidu.com").build()).execute()
             true
         } catch (e:java.lang.Exception) {
-            Log.d("HERKS", e.toString())
+            Log.d("Herkin", e.toString())
             false
         }
     }

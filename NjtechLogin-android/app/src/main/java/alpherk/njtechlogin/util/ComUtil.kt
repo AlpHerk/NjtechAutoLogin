@@ -1,6 +1,4 @@
 package alpherk.njtechlogin.util
-import android.annotation.SuppressLint
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.edit
@@ -85,22 +83,5 @@ fun saveSharedPrefs(key: String, value: Any, to: String=USER_DATA) {
     }
 }
 
-//@SuppressLint("CommitPrefEdits")
-//fun saveSharedPrefs(key: String, value: Any, toFile: String=COMM_DATA) {
-//    val prefs = MyApp.context.getSharedPreferences(toFile, 0).edit()
-//
-//    when (value) {
-//        is Boolean -> {
-//            错误使用！！
-//            Log.d("Herkin", "saveSharedPrefs $key - $value")
-//            prefs.putBoolean(key, value as Boolean)
-//        }
-//        is String  -> {
-//            prefs.putString(key, value)
-//        }
-//        is Int     -> {
-//            prefs.putInt(key, value)
-//        }
-//    }
-//}
+
 

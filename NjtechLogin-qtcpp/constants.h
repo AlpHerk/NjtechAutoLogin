@@ -21,7 +21,7 @@ const QString LOGIN_KEY5  = "NetCorpCode"; // 宽带运营商
 const QString SETTING_KEY1= "ReconnectTime";
 const QString SETTING_KEY2= "AutoRun";
 const QString SETTING_KEY3= "ShowLoginPop";
-
+const QString SETTING_KEY4= "IgnoreThisUpdate";
 
 /// 程序信息
 const int     VER_CODE = 112;

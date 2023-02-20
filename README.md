@@ -89,7 +89,7 @@
 
 
 <details>
-<summary>电脑Win版更新日志</summary>
+<summary>电脑Win版更新日志 (2023.2.18)</summary>
 
 v1.1.2 (2023.2.18)
 - [x] 修复更新软件后的自启注册表
@@ -130,7 +130,7 @@ v0.5.0.0 (2021.6.15)
 
 
 <details>
-<summary>安卓App更新日志</summary>
+<summary>安卓App更新日志 (2023.2.18)</summary>
 
 
 v0.0.0 (待修复及待实现)

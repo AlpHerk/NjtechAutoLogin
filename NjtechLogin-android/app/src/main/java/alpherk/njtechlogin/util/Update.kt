@@ -4,7 +4,6 @@ import alpherk.njtechlogin.R
 import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
-import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.OkHttpClient
@@ -58,7 +57,6 @@ object Update {
                 val vername = name.substringAfter("-v").substringBefore(".apk")
                 val vercode = vername.filter { it.isDigit() }.toInt()
 
-                Log.d("Herkin", "downUrl name $downUrl")
                 return Version(vername, vercode, downUrl)
             }
         }
@@ -92,7 +90,7 @@ object Update {
             val vercode = vername.filter { it.isDigit() }.toInt()
             return Version(vername, vercode, downUrl)
         }
-        return Version("当前为最新版本", 0, "NunUrl")
+        return Version("null", 0, "NunUrl")
     }
 
     fun getCurrentVerCode(): Int {
@@ -132,6 +130,8 @@ object Update {
         }
         return false
     }
+
+
     @Deprecated("此检查更新已被弃用")
     private fun parseJsonDeprecated(jsonData: String): List<App> {
         val gson = Gson()

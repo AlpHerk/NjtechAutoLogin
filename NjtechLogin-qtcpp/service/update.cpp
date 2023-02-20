@@ -52,8 +52,6 @@ void Update::checkUpdate(int hide)
                 QString downUrl = obj.value("browser_download_url").toString();
 
                 if (downUrl.contains("win")) {
-//                    获取本版代码的旧方法
-//                    int newVerCode = downUrl.right(9).left(6).replace(".", "").toInt();
 
                     QRegularExpression static vername("-v(?<ver>.*?).zip");
                     QString newVer = vername.match(downUrl).captured("ver");
@@ -66,14 +64,36 @@ void Update::checkUpdate(int hide)
                     }
                     int newVerCode = tmp.toInt();
 
-                    qDebug() << "Herkin" << "更新链接：" << newVerCode;
+                    //qDebug() << "Herkin" << "更新链接：" << newVerCode;
 
                     if (VER_CODE < newVerCode) {
                         QString name = "最新版本：" + appName;
                         QString down = "\n\n下载链接：" + QByteArray::fromPercentEncoding(downUrl.toUtf8());
                         QString ques = "\n\n是否自动跳转至浏览器下载？";
-                        QMessageBox::StandardButton box = QMessageBox::question(this, "检查更新", name+down+ques + "\n");
-                        if (box==QMessageBox::Yes)  QDesktopServices::openUrl(QUrl(downUrl));
+
+                        if (hide) {
+                            QSettings settings(AUTHOR, SOFTNAME);
+                            int ignorecode = settings.value(SETTING_KEY4, 0).toInt();
+                            // 开机自检时 hide=1，当最新的版本号 同 忽略更新的版本号时，不弹窗
+                            if (ignorecode == newVerCode) {
+                                return;
+                            }
+                        }
+                        // QMessageBox::StandardButton box = QMessageBox::question(this, "检查更新", name+down+ques + "\n");
+
+                        QMessageBox mymessage(QMessageBox::Question, "检查更新", name+down+ques + "\n");
+                        QPushButton *btnYes = mymessage.addButton(("立刻下载"), QMessageBox::YesRole);
+                        QPushButton *btnNo  = mymessage.addButton(("忽略本版"), QMessageBox::NoRole);
+                        mymessage.exec();
+
+                        if ((QPushButton*)mymessage.clickedButton() == btnYes)  {
+                            QDesktopServices::openUrl(QUrl(downUrl));
+
+                        } else if ((QPushButton*)mymessage.clickedButton() == btnNo) {
+                            // 忽略本次更新，并写入忽略的版本号
+                            QSettings settings(AUTHOR, SOFTNAME);
+                            settings.setValue(SETTING_KEY4, newVerCode);
+                        }
                     }
                     else {
                         if (!hide) QMessageBox::information(this, "检查更新", "当前已是最新版：" + appName + "\n");
@@ -86,7 +106,7 @@ void Update::checkUpdate(int hide)
         }
     }
     else {
-        if (!hide) QMessageBox::information(this, "检查更新", "更新配置解析失败, 请重试   \n");
+        if (!hide) QMessageBox::information(this, "检查更新", "更新配置解析失败, 请重试！   \n");
     }
 }
 
@@ -103,7 +123,7 @@ void Update::updateLog()
         QMessageBox::information(this, "更新日志", updatelog + "\n");
     }
     else {
-        QMessageBox::information(this, "更新日志", "日志解析失败, 请重试    \n");
+        QMessageBox::information(this, "更新日志", "日志解析失败, 请重试！    \n");
     }
 }
 

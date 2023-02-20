@@ -1,4 +1,5 @@
 package alpherk.njtechlogin.ui.about
+import alpherk.njtechlogin.R
 import alpherk.njtechlogin.databinding.FragmentInfoBinding
 import alpherk.njtechlogin.ui.about.feedback.FeedbackActivity
 import alpherk.njtechlogin.ui.about.help.HelpActivity
@@ -61,11 +62,14 @@ class InfoFragment : Fragment() {
         } else {
             AlertDialog.Builder(context).apply {
                 setCancelable(true)
-                setTitle("检测更新")
-                setMessage("当前已经是最新版：${checkInfo.vername}")
+                setTitle("更新内容")
+                setMessage(
+                    "\n当前已经是最新版：${context.getString(R.string.app_version_name)}\n"
+                    + context.getString(R.string.app_update_info).trimIndent()
+                )
                 setPositiveButton("确认") { _, _ ->
                 }
-                setNegativeButton("查看") { _, _ ->
+                setNegativeButton("更多") { _, _ ->
                     val uri = Uri.parse(CSDN_PRJ_URL)
                     startActivity(Intent(Intent.ACTION_VIEW, uri))
                 }

@@ -12,10 +12,10 @@ class NetReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
 
         if (intent.action == WifiManager.NETWORK_STATE_CHANGED_ACTION) {
-            Log.d("HERK", "网络变化")
-//            val wifiManager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+            Log.d("HERKIN", "网络变化")
+            // val wifiManager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
             val wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, 0)
-            Log.e("HERK", wifiState.toString())
+            Log.e("HERKIN", wifiState.toString())
         }
 
     }

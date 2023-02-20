@@ -11,6 +11,7 @@ class LoginData {
     fun postUserData(): List<String> {
         return listOf(username, password, netCompa)
     }
+
 }
 
 
