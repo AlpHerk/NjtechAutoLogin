@@ -34,12 +34,14 @@
 
 ![(●'◡'●)](https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg)
 
+
 [Star]:     https://github.com/AlpHerk/NjtechAutoLogin/stargazers
 [Latest]:   https://github.com/AlpHerk/NjtechAutoLogin/releases/latest
 [WebSite]:  https://alpherk.github.io/NjtechAutoLogin/
 [CsdnBlog]: https://blog.csdn.net/Alpherkin
 [CsdnPrj]:  https://blog.csdn.net/Alpherkin/article/details/120580798
 [HomePage]: https://github.com/AlpHerk/NjtechAutoLogin/blob/Windows/docs/images/homepage.jpg
+[IOSQuick]: https://www.icloud.com/shortcuts/ecf46479c1a94404b23925cdc533e5ef
 
 </div>
 <br><br>
@@ -49,32 +51,48 @@
 ## 本项目支持 Android/IOS/Windows 多平台认证
 
 
-
-1. 本仓库下设 NjtechLogin-* 等多个子目录，分别对应不同平台和系统``
-2. Linux、MacOS、IOS 可配置 python 环境，运行通用脚本进行认证
-3. Linux、MacOS 如需打包软件，可自行下载仓库 Qt 源码并进行编译
-4. Android、Windows 系统提供相应的软件，[官网下载][WebSite] 即可使用
-5. Njtech-Home、Njtech 均可认证，认证失败请查看 [常见问题](#faq)
-
+本项目发布了 Windows 软件、安卓 apk、IOS 快捷指令，[官网下载][WebSite] 即可使用
 
 <br>
 
-- NjtechLogin-android: 基于 Kotlin 开发的 App 应用 
-  > 适用于鸿蒙系统(HarmonyOS) 1.0以上，安卓系统 8以上  
-  > 适配横屏模式，强烈推荐平板使用 ！！
+## 使用注意事项
 
-- NjtechLogin-ios&linux: 基于 Python 开发，pythonista3 运行
-  > 此目录下为核心源码，不提供UI界面
-  > 适用于IOS平台，下载 pythonista3 配合快捷指令  
-  > 需要自行配置快捷指令，后续完善，目前此处仅提供源码  
+1. 目前的 Windows、Android 软件、IOS 快捷指令只适配了新版的 Njtech-Home 认证，暂 不支持 Njtech 的认证。建议使用 Njtech 时，勾选无感认证，绑定设备，则不用再反复验证密码。
 
-- NjtechLogin-win-python: 基于 Python、PyQt 开发的 Win 客户端。
-  > 有python环境可直接运行 autologin.py  
-  > exe 版具有断网重连、开机自启等功能
+2. Windows 软件如不能正常自启，请重新勾选软件内的 `开机认证`,
 
-- NjtechLogin-win-c++: 基于 C++ 语言、Qt 框架 开发的跨平台客户端。  
-  > 由于 PyQt 框架开发的客户端体积越来越大，现已利用 Qt 重新开发。  
-  > 重置 Win 客户端版本号，设计更美观丰富的界面
+3. Android 软件长按图标即可进行认证。屏幕解锁时若无网，则会自动唤醒认证。
+
+4. IOS 快捷指令：运营商，中国移动填 `@cmcc`，中国电信填 `@telecom`。WiFi 请开启自动加入。
+
+5. 其他认证失败的情况，请查看 [常见问题](#faq)
+
+<br>
+
+## 仓库目录说明
+
+> NjtechLogin-android: 基于 Kotlin 语言开发的 App 应用   
+
+- 适用于鸿蒙系统(HarmonyOS) 1.0+，安卓系统 8+
+- 适配横屏模式，强烈推荐平板使用 ！！
+
+
+> ~~NjtechLogin-pyqt: 基于 PyQt 框架 开发的桌面软件(已弃用)~~
+
+- 此目录的项目为前期桌面端 UI 的解决方案，现在已弃用
+- 因此，桌面端请直接见 qtcpp 目录的解决方案
+
+
+> NjtechLogin-python: 基于 Python 语言开发的脚本
+
+- 此目录下为校园网认证的纯 python 代码，无UI界面
+- 可运行于 IOS 平台的 pythonista3 软件
+
+
+> NjtechLogin-qtcpp: 基于 C++ 语言、Qt 框架 开发的跨平台客户端
+
+- 由于 PyQt 框架开发的客户端体积大，故利用 Qt 重新开发 
+- Windows，Linux，MacOS 平台也可编译使用
 
 
 
@@ -175,10 +193,14 @@ v1.0.0 (2021.09.25)
 
 
 <details>
-<summary>IOS认证更新日志</summary>
+<summary>IOS认证更新日志 (2023.2.21)</summary>
 
-- [x] 精简python代码(04.11/2021)
-- [ ] 创建IOS快捷指令
+2023.2.21
+- [x] 适配新版认证页的快捷指令 
+
+2021.04.11
+- [x] 创建 IOS 快捷指令
+- [x] 精简python代码
 
 </details>
 
@@ -186,9 +208,9 @@ v1.0.0 (2021.09.25)
 <details>
 <summary>官方网页维护日志</summary>
 
-- [ ] 补充脚页内容
-- [ ] 增加日志更新页内容
-- [ ] 增加应用推荐页内容
+- [x] 补充脚页内容
+- [x] 增加日志更新页内容
+- [x] 增加应用推荐页内容
 
 </details>
 
