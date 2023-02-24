@@ -1,7 +1,7 @@
 package alpherk.njtechlogin.ui
 import alpherk.njtechlogin.R
-import alpherk.njtechlogin.receiver.ScreenReceiver
 import alpherk.njtechlogin.databinding.MainNavDrawerBinding
+import alpherk.njtechlogin.receiver.ScreenReceiver
 import alpherk.njtechlogin.service.AuthenOffService
 import alpherk.njtechlogin.service.AuthenService
 import alpherk.njtechlogin.service.GuardService
@@ -14,16 +14,17 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -36,7 +37,7 @@ import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var binding: MainNavDrawerBinding
     private lateinit var appBarConfig: AppBarConfiguration
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.appBarMain.toolbar)
 
+        // 认证服务
         val (username, password) = LoginData().postUserData()
         if (username == "" || password == "") {
             // fistTimeDialog()
@@ -56,32 +58,34 @@ class MainActivity : AppCompatActivity() {
             startService(Intent(this, AuthenService::class.java))
         }
 
+
+        // 守护服务
         if (SettingData().isGardNet) {
             startService(Intent(this, GuardService::class.java))
         }
 
+        // 侧滑栏相关
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         val menuset = setOf(R.id.nav_account, R.id.nav_setting, R.id.nav_info)
         appBarConfig = AppBarConfiguration(menuset, binding.drawerLayout)
         setupActionBarWithNavController(navController, appBarConfig)
         binding.navView.setupWithNavController(navController)
 
-
+        // 注册解锁屏幕广播
         val filter = IntentFilter()
-        filter.addAction(Intent.ACTION_SCREEN_ON)   // 注册解锁屏幕广播
+        filter.addAction(Intent.ACTION_SCREEN_ON)
+        val screenReceiver = ScreenReceiver()
+        registerReceiver(screenReceiver, filter)
+
         // filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
         // filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
         // val netReceiver = NetReceiver()
         // registerReceiver(netReceiver, filter)
-        val screenReceiver = ScreenReceiver()
-        registerReceiver(screenReceiver, filter)
-
 
         checkUpdateBar(binding.root)
 
         updateInfoDialogNew(this)
 
-        // Log.d("Herkin", this.getString(R.string.app_version_name))
 
     }
 
@@ -89,6 +93,21 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         unregisterReceiver(screenReceiver)
     }
+
+
+
+
+    /**
+     * 返回桌面而不是停止程序
+     */
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            moveTaskToBack(false)
+            return true
+        }
+        return super.onKeyDown(keyCode, event)
+    }
+
 
     /**
      * 首页侧滑栏菜单配置
@@ -130,7 +149,7 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.toolbar_setting -> Toast.makeText(this,"跳转失败，请从侧滑栏打开设置", Toast.LENGTH_SHORT).show()
             R.id.toolbar_logout_net -> startService(Intent(this, AuthenOffService::class.java))
-            R.id.toolbar_logout -> exitProcess(0)
+            R.id.toolbar_logout -> ActivityCollector.finishAll()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -139,10 +158,11 @@ class MainActivity : AppCompatActivity() {
      * 从右上角菜单，跳转至设置
      */
     @Deprecated("暂时停用")
-    private fun jumptoSettingFragment(){
+    private fun jumptoSettingFragment() {
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.nav_host_fragment_content_main, SettingFragment())
+            .addToBackStack(null)
             .commit()
         Toast.makeText(this,"BUG：页面重叠，有空再改", Toast.LENGTH_SHORT).show()
     }
@@ -199,7 +219,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateInfoDialogNew(context: Context) {
         // 读取信息：用户是否已经阅读过更新日志
         val isRead = getSharedPrefs(IS_UPGRADE_INFO_READ, false)
-        Log.d("Herkin", "is read $isRead")
+        //Log.d("Herkin", "is read $isRead")
         if (isRead == false) {
             AlertDialog.Builder(this).apply {
                 setTitle("更新说明")

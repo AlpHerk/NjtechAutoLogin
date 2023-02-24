@@ -3,7 +3,7 @@
     <string name="app_author">开发 @ 无白Herk</string>
     <string name="app_version_code">务必到 build.gradle.app 中更新版本号</string>
     <string name="app_version_name_prefix">版本：v </string>
-    <string name="app_version_name">1.3.2.stable</string>
+    <string name="app_version_name">1.3.2</string>
 
     <string name="app_update_info">
         \n\n1. 右上角增加 ⌈注销认证⌋ 按钮
@@ -54,6 +54,15 @@
     <string name="get_help_btn">详细的说明</string>
     <string name="go_my_page">前往官网</string>
     <string name="down_win_version">下载电脑版</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 
 </resources>

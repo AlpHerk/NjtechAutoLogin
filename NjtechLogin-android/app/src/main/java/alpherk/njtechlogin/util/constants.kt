@@ -14,7 +14,7 @@ const val AUTORUN  = "autoRun"
 
 var GARDNET_defVal = true
 var AUTORUN_defVal = false
-var CNTTIME_defVal = 2 //每指定分钟检测网络
+var CNTTIME_defVal = 5 //每指定分钟检测网络
 
 const val IS_FIRST_USE = "is_first_use"
 const val IS_UPGRADE_INFO_READ = "is_upgrade_info_read"

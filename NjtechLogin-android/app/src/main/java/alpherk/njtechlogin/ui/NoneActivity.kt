@@ -3,11 +3,9 @@ package alpherk.njtechlogin.ui
 import alpherk.njtechlogin.R
 import alpherk.njtechlogin.service.AuthenService
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 
-class NoneActivity : AppCompatActivity() {
+class NoneActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         moveTaskToBack(true)

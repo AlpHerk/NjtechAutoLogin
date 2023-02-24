@@ -29,6 +29,7 @@ class SettingFragment : Fragment() {
             } else {
                 activity?.stopService(Intent(activity, GuardService::class.java))
             }
+
             saveLoginData()
         }
         binding.autoRunSwt.setOnCheckedChangeListener { _, isChecked ->
@@ -52,5 +53,7 @@ class SettingFragment : Fragment() {
             putBoolean(AUTORUN, binding.autoRunSwt.isChecked)
         }
     }
+
+
 
 }

@@ -20,23 +20,15 @@ class ScreenReceiver: BroadcastReceiver() {
 
         val action = intent.action
         if (action == Intent.ACTION_SCREEN_ON) {
-            // thread {
-            //     if (NetUtil.isWifiEnable() && !NetUtil.pingNetwork()) {
-            //         context.startService(Intent(context, AuthenService::class.java))
-            //         Log.d("HERKIN", "屏幕解锁，WiFi无网")
-            //     } else {
-            //         Log.d("HERKIN", "屏幕解锁，网络连通")
-            //
-            //     }
-            // }
+
             scope.launch {
                 launch(Dispatchers.IO) {
                     if (NetUtil.isWifiEnable() && !NetUtil.pingNetwork()) {
                         context.startService(Intent(context, AuthenService::class.java))
-                        Log.d("HERKIN", "屏幕解锁，WiFi无网")
-                        showToast("WiFi无网，自动认证中")
+                        Log.d("Herkin", "屏幕解锁，WiFi无网")
+                        showToast("自动认证，正在接入互联网")
                     } else {
-                        Log.d("HERKIN", "屏幕解锁，网络连通")
+                        Log.d("Herkin", "屏幕解锁，网络连通")
                     }
                 }
             }

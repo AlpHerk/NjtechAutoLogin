@@ -8,4 +8,5 @@
     <color name="bg_card_gray">#A2C2D2</color>
     <color name="bg_card_silver">#CCCBDBE8</color>
     <color name="login_green">#00B386</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
 </resources>

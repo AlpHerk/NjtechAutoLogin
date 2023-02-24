@@ -1,16 +1,18 @@
 package alpherk.njtechlogin.ui.login
+import alpherk.njtechlogin.R
 import alpherk.njtechlogin.ui.MainActivity
 import alpherk.njtechlogin.databinding.ActivityLoginBinding
+import alpherk.njtechlogin.ui.BaseActivity
 import alpherk.njtechlogin.util.*
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
 
     @SuppressLint("CommitPrefEdits", "ResourceType")
@@ -30,6 +32,11 @@ class LoginActivity : AppCompatActivity() {
             }
             saveLoginData()
         }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        setContentView(R.layout.activity_login)
     }
 
     /**

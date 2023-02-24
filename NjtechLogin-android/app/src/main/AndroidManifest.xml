@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="alpherk.njtechlogin">
+    package="alpherk.njtechlogin" >
 
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -16,75 +16,82 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NJtechAutologin"
-        android:usesCleartextTraffic="true">
-        <activity
-            android:name=".ui.NoneActivity"
-            android:exported="false"
-            android:excludeFromRecents="true"
-            android:process=":RunSoLibV2RayDaemon"
-            android:theme="@style/Theme.NJtechAutologin.NoActionBar.Translucent" />
-
-        <service
-            android:name=".service.AuthenOffService"
-            android:enabled="true"
-            android:exported="true" />
+        android:usesCleartextTraffic="true" >
 
         <activity
             android:name=".ui.MainActivity"
+            android:excludeFromRecents="true"
             android:exported="true"
             android:launchMode="singleTask"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.NJtechAutologin.NoActionBar">
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:theme="@style/Theme.NJtechAutologin.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
-
         </activity>
 
         <activity
-            android:name="alpherk.njtechlogin.ui.login.LoginActivity"
+            android:name=".ui.login.LoginActivity"
             android:exported="true"
             android:label="@string/activity_login_title"
             android:launchMode="singleTask"
-            android:parentActivityName=".ui.MainActivity"
-            android:screenOrientation="fullSensor">
+            android:parentActivityName=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name="alpherk.njtechlogin.ui.about.help.HelpActivity"
+            android:name=".ui.about.help.HelpActivity"
             android:exported="true"
             android:label="@string/app_help"
             android:parentActivityName=".ui.MainActivity" />
+
         <activity
-            android:name="alpherk.njtechlogin.ui.about.feedback.FeedbackActivity"
+            android:name=".ui.about.feedback.FeedbackActivity"
             android:exported="true"
             android:label="@string/app_feedback"
             android:parentActivityName=".ui.MainActivity" />
 
+        <activity
+            android:name=".ui.BaseActivity"
+            android:exported="false"
+            android:label="@string/title_activity_base"
+            android:theme="@style/Theme.NJtechAutologin.NoActionBar" />
+
+        <activity
+            android:name=".ui.NoneActivity"
+            android:exported="false"
+            android:process=":RunShortcutAuthen"
+            android:theme="@style/Theme.NJtechAutologin.NoActionBar.Translucent" />
+
+
+
         <service
             android:name=".service.AuthenService"
             android:enabled="true"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.LOGIN" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
         <service
+            android:name=".service.AuthenOffService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
             android:name=".service.GuardService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="mediaProjection" />
+            android:foregroundServiceType="mediaProjection"
+            android:process=":GuardService" />
     </application>
 
 </manifest>

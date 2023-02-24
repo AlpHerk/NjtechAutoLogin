@@ -1,7 +1,9 @@
 package alpherk.njtechlogin.ui.home
 import alpherk.njtechlogin.service.AuthenService
 import alpherk.njtechlogin.databinding.FragmentHomeBinding
+import alpherk.njtechlogin.databinding.MainNavDrawerBinding
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
