@@ -10,13 +10,13 @@ android {
         applicationId "alpherk.njtechlogin"
         minSdk 28
         targetSdk 31
-        versionCode 132
+        versionCode 133
         versionName "@string/app_version_name"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     android.applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "NjtechAuthen-android-v1.3.2.apk"
+            outputFileName = "NjtechAuthen-android-v1.3.3.apk"
         }
     }
 

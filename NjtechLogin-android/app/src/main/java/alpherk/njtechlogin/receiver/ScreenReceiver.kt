@@ -26,7 +26,7 @@ class ScreenReceiver: BroadcastReceiver() {
                     if (NetUtil.isWifiEnable() && !NetUtil.pingNetwork()) {
                         context.startService(Intent(context, AuthenService::class.java))
                         Log.d("Herkin", "屏幕解锁，WiFi无网")
-                        showToast("自动认证，正在接入互联网")
+                        showToast("正在接入互联网")
                     } else {
                         Log.d("Herkin", "屏幕解锁，网络连通")
                     }

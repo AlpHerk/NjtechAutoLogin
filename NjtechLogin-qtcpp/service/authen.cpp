@@ -179,6 +179,10 @@ void Authen::authBack(QNetworkReply *reply)
                 emit emitAuthenInfo(timeStr + "🟥 请选择正确的运营商，移动/电信！");
                 isGuardOn = false;  // 暂时关闭守护
             }
+            else if (location.contains("ErrorMsg=UmFkOkxpbWl0IFVzZXJzIEVycg")) {
+                emit emitAuthenInfo(timeStr + "🟥 运营商终端超限，请致电清理");
+                isGuardOn = false;  // 暂时关闭守护
+            }
             else if (location.contains("ACLogOut=1")) {
                 emit emitAuthenInfo(timeStr + "🟧 网络断开，守护关闭");
             }

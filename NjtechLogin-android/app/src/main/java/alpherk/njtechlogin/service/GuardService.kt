@@ -1,18 +1,17 @@
 package alpherk.njtechlogin.service
 import alpherk.njtechlogin.R
+import alpherk.njtechlogin.receiver.ScreenReceiver
 import alpherk.njtechlogin.ui.about.feedback.FeedbackActivity
 import alpherk.njtechlogin.ui.setting.SettingData
 import alpherk.njtechlogin.util.CNTTIME_defVal
 import alpherk.njtechlogin.util.MyApp.Companion.context
 import alpherk.njtechlogin.util.NetUtil
 import alpherk.njtechlogin.util.showToast
-import android.annotation.SuppressLint
 import android.app.*
 import android.content.Intent
-import android.graphics.Color
+import android.content.IntentFilter
 import android.os.IBinder
 import android.util.Log
-import androidx.core.app.NotificationCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -41,6 +40,15 @@ class GuardService : Service() {
         startForeground(1, notification.build()); //开始前台服务
         isGuardRun = true
 
+        // 注册解锁屏幕广播
+        val filter = IntentFilter()
+        filter.addAction(Intent.ACTION_SCREEN_ON)
+        val screenReceiver = ScreenReceiver()
+        registerReceiver(screenReceiver, filter)
+        // filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+        // filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
+        // val netReceiver = NetReceiver()
+        // registerReceiver(netReceiver, filter)
 
         thread {
             while(SettingData().isGardNet) {

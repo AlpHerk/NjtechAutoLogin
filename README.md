@@ -20,11 +20,11 @@
 <!-- 简体中文 | [English](./README.en.md) -->
 
 [官网下载地址][WebSite]&emsp;&emsp;[CSDN项目地址][CsdnPrj]&emsp;&emsp;[联系及反馈][CsdnBlog]
+<!-- [![许可证](https://img.shields.io/github/license/AlpHerk/NjtechAutoLogin?color=F19D70)](LICENSE) -->
 
-<!-- ![Release Download](https://img.shields.io/github/downloads/AlpHerk/NjtechAutoLogin/total) -->
 ![仓库大小](https://img.shields.io/github/repo-size/AlpHerk/NjtechAutoLogin?color=5DBD88)
 [![最新版](https://img.shields.io/github/v/release/AlpHerk/NjtechAutoLogin)][Latest]
-[![许可证](https://img.shields.io/github/license/AlpHerk/NjtechAutoLogin?color=F19D70)](LICENSE)
+![下载量](https://img.shields.io/github/downloads/AlpHerk/NjtechAutoLogin/total?color=5BAF3B)
 [![星标数](https://img.shields.io/github/stars/AlpHerk/NjtechAutoLogin?color=DCBC76)][Star]
 
 [![CSDN项目](https://img.shields.io/badge/CSDN-项目地址-blue.svg?color=F0AEA9)][CsdnPrj]
@@ -263,6 +263,8 @@ Android 端，闪退？
 - 支持安卓8以上版本，过低过高版本可能闪退
 - 安卓9具有自动连接wifi等特性，9以上不具有
 </details>
+
+<br>
 
 ## 项目 API 处理说明
 - 软件对 GitHub release 页的链接进行检查更新

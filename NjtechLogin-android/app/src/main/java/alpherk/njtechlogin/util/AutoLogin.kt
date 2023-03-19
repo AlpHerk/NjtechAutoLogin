@@ -77,6 +77,9 @@ object AutoLogin {
             else if (res.contains("ACLogOut=5&RetCode=1&ErrorMsg=dXNlcmlkIGVycm9yMQ"  )) {
                 Pair(false, "🔴 请选择正确的运营商，移动/电信！")
             }
+            else if (res.contains("ACLogOut=5&RetCode=1&ErrorMsg=UmFkOkxpbWl0IFVzZXJzIEVycg"  )) {
+                Pair(false, "🔴 认证失败，运营商终端超限！")
+            }
             else if (res.contains("ACLogOut=5&RetCode=1")) {
                 Pair(true,  "🔴️ AC认证失败")
             }
@@ -173,6 +176,10 @@ http://10.50.255.11:80/2.htm?wlanuserip=10.40.177.167&wlanacname=me60&wlanacip=1
 
 AC认证失败
 http://10.50.255.11/2.htm?wlanuserip=192.168.94.2&wlanacname=me60&wlanacip=10.50.255.1&mac=00-00-00-00-00-00&session=&redirect=&ACLogOut=3&RetCode=1&ErrorMsg=
+
+运营商终端超限！电信请拨打：10000，移动请拨打：10086进行在线终端清理。
+http://10.50.255.11:80/2.htm?wlanuserip=10.40.177.167&wlanacname=me60&wlanacip=10.50.255.1&mac=00-00-00-00-00-00&session=&redirect=&ACLogOut=5&RetCode=1&ErrorMsg=UmFkOkxpbWl0IFVzZXJzIEVycg==
+
 """
 
 @Deprecated("旧的智慧南工认证类")

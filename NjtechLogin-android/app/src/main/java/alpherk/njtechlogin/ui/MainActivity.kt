@@ -71,16 +71,7 @@ class MainActivity : BaseActivity() {
         setupActionBarWithNavController(navController, appBarConfig)
         binding.navView.setupWithNavController(navController)
 
-        // 注册解锁屏幕广播
-        val filter = IntentFilter()
-        filter.addAction(Intent.ACTION_SCREEN_ON)
-        val screenReceiver = ScreenReceiver()
-        registerReceiver(screenReceiver, filter)
 
-        // filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
-        // filter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
-        // val netReceiver = NetReceiver()
-        // registerReceiver(netReceiver, filter)
 
         checkUpdateBar(binding.root)
 

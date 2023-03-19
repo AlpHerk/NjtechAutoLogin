@@ -24,8 +24,8 @@ const QString SETTING_KEY3= "ShowLoginPop";
 const QString SETTING_KEY4= "IgnoreThisUpdate";
 
 /// 程序信息
-const int     VER_CODE = 112;
-const QString VER_NAME = "V 1.1.2";
+const int     VER_CODE = 113;
+const QString VER_NAME = "V 1.1.3";
 const QString SOFTNAME = "NjtechAutoLogin";
 const QString AUTHOR   = "AlpHerk";
 
