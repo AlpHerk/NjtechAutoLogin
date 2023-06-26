@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 /**
  * 注销认证服务
  */
-class AuthenOffService : Service() {
     private val job = Job()
     private val scope = CoroutineScope(job)
 
